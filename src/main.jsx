@@ -12,5 +12,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
       </TaskContext>
     </AuthContext>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
