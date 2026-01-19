@@ -9,17 +9,17 @@ const App = () => {
   const[user, setUser] = useState(null);
 
   const handleLogin = (email, password) => {
-    if(email == 'admin@gmail.com' && password == '12345'){
-      // setUser('admin');
+    if(email == 'admin@taskbridge.com' && password == '12345'){
+      setUser('admin');
     } else if(email == 'user@gmail.com' && password == '12345') {
-      // setUser('employee');
+      setUser('employee');
     }
     else {
       alert("Invalid Creds");
     }
   }
 
-  handleLogin('admin@gmail.com', 12345);
+  // handleLogin('admin@gmail.com', 12345);
 
   // useEffect(() => {
   //   setLocalStorage();
@@ -29,6 +29,8 @@ const App = () => {
     <>
       {!user ? <Login handleLogin={handleLogin} /> : ''}
       {user === 'admin' ? <AdminDashboard /> : <EmployeeDashboard/> }
+      {/* <AdminDashboard /> */}
+      {/* <EmployeeDashboard/> */}
     </>
   )
 }
