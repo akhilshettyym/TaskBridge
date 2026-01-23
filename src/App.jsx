@@ -15,7 +15,7 @@ const App = () => {
     } else {
       alert('Invalid credentials');
     }
-  };
+  }
 
   // useEffect(() => {
   //   const storedUser = localStorage.getItem('user');
