@@ -1,45 +1,49 @@
 import Login from "./components/Auth/Login";
-import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard"
-import AdminDashboard from "./components/Dashboard/AdminDashboard"
+import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
+import AdminDashboard from "./components/Dashboard/AdminDashboard";
 import { useContext, useEffect, useState } from "react";
 import { setLocalStorage } from "./utils/localStorage";
 import { AuthContext } from "./context/AuthProvider";
 
 const App = () => {
   const [user, setUser] = useState(null);
+  const [loggedInUserData, setLoggedInUserData] = useState(null);
+
+  const authData = useContext(AuthContext);
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      const parsedUser = JSON.parse(loggedInUser);
+      setUser({ role: parsedUser.role });
+    }
+  }, []);
 
   const handleLogin = (email, password) => {
-    if (email === 'admin@taskbridge.com' && password === '12345') {
-      setUser({ role: 'admin' });
-    } else if (email === 'user@gmail.com' && password === '12345') {
-      setUser({ role: 'employee' });
-    } else {
-      alert('Invalid credentials');
+    if (email === "admin@taskbridge.com" && password === "12345") {
+      setUser({ role: "admin" });
+      localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
+    } else if (authData && authData.employees) {
+      const employee = authData.employees.find((e) => email === e.email && e.password === password);
+      if (employee) {
+        setUser({ role: "employee" });
+        setLoggedInUserData(employee);
+        localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee" }));
+      } else {
+        alert("Invalid credentials");
+      }
     }
-  }
-
-  // useEffect(() => {
-  //   const storedUser = localStorage.getItem('user');
-  //   if (storedUser) setUser(JSON.parse(storedUser));
-  // }, []);
-
-  // setLocalStorage();
-
-  // useEffect(() => {
-  //   if (user) {
-  //     localStorage.setItem('user', JSON.stringify(user));
-  //   }
-  // }, [user]);
-
-  const data = useContext(AuthContext);
-  console.log("USERDATA", data);
+  };
 
   if (!user) {
     return <Login handleLogin={handleLogin} />;
   }
 
-
-  return user.role === 'admin' ? <AdminDashboard /> : <EmployeeDashboard />;
+  return user.role === "admin" ? (
+    <AdminDashboard />
+  ) : (
+    <EmployeeDashboard data={loggedInUserData} />
+  );
 };
 
 export default App;
