@@ -6,12 +6,12 @@ const CompleteTask = ({ data }) => {
       <div className="flex justify-between items-center">
         <span className="text-xs px-4 py-1 rounded-sm bg-[#DCD9D6]/15 text-[#ffffff] tracking-wide"> Complete Task </span>
         <PriorityTag priorityMsg={data?.priority} />
-        <span className="text-xs text-[#F8F8F2]/70">{data?.date}</span>
+        <span className="text-xs text-[#F8F8F2]/70">{data?.date || ""}</span>
       </div>
 
-      <h2 className="mt-5 text-xl font-semibold text-[#F8F8F2]">{data?.title}</h2>
-      <h6 className="mt-1 text-sm text-[#F8F8F2]">Category : {data?.category}</h6>
-      <p className="text-sm mt-3 text-[#F8F8F2]/70 leading-relaxed">{data?.description}</p>
+      <h2 className="mt-5 text-xl font-semibold text-[#F8F8F2]">{data?.title || ""}</h2>
+      <h6 className="mt-1 text-sm text-[#F8F8F2]">Category : {data?.category || ""}</h6>
+      <p className="text-sm mt-3 text-[#F8F8F2]/70 leading-relaxed">{data?.description || ""}</p>
 
       <div className="flex justify-between mt-10">
         <button className="bg-green-500 py-2 px-2 text-sm rounded-md w-full"> Completed </button>

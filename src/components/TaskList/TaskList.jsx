@@ -4,7 +4,6 @@ import FailedTask from "./FailedTask";
 import NewTask from "./NewTask";
 
 const TaskList = ({ data }) => {
-    console.log("Data in TaskList", data);
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-5">
             {data.tasks.map((e, idx) => {
