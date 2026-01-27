@@ -1,6 +1,7 @@
 const employee = [
     {
         id: 1,
+        firstname: "Aarav",
         email: "employee1@taskbridge.com",
         password: "12345",
         tasks: [
@@ -34,10 +35,17 @@ const employee = [
                 date: "2026-01-15",
                 category: "Backend"
             }
-        ]
+        ],
+        taskNumbers: {
+            active: 1,
+            newTask: 1,
+            completed: 1,
+            failed: 1
+        }
     },
     {
         id: 2,
+        firstname: "Vihaan",
         email: "employee2@taskbridge.com",
         password: "12345",
         tasks: [
@@ -71,10 +79,17 @@ const employee = [
                 date: "2026-01-18",
                 category: "Testing"
             }
-        ]
+        ],
+        taskNumbers: {
+            active: 1,
+            newTask: 1,
+            completed: 1,
+            failed: 1
+        }
     },
     {
         id: 3,
+        firstname: "Arjun",
         email: "employee3@taskbridge.com",
         password: "12345",
         tasks: [
@@ -108,10 +123,17 @@ const employee = [
                 date: "2026-01-12",
                 category: "Database"
             }
-        ]
+        ],
+        taskNumbers: {
+            active: 1,
+            newTask: 1,
+            completed: 1,
+            failed: 1
+        }
     },
     {
         id: 4,
+        firstname: "Advik",
         email: "employee4@taskbridge.com",
         password: "12345",
         tasks: [
@@ -145,10 +167,17 @@ const employee = [
                 date: "2026-01-10",
                 category: "Security"
             }
-        ]
+        ],
+        taskNumbers: {
+            active: 1,
+            newTask: 1,
+            completed: 1,
+            failed: 1
+        }
     },
     {
         id: 5,
+        firstname: "Reyansh",
         email: "employee5@taskbridge.com",
         password: "12345",
         tasks: [
@@ -182,7 +211,13 @@ const employee = [
                 date: "2026-01-14",
                 category: "Optimization"
             }
-        ]
+        ],
+        taskNumbers: {
+            active: 1,
+            newTask: 1,
+            completed: 1,
+            failed: 1
+        }
     }
 ];
 
@@ -196,7 +231,7 @@ const admin = [
 
 export const setLocalStorage = () => {
     localStorage.setItem('employees', JSON.stringify(employee));
-    localStorage.setItem('admin',     JSON.stringify(admin));
+    localStorage.setItem('admin', JSON.stringify(admin));
 };
 
 export const getLocalStorage = () => {
@@ -204,7 +239,7 @@ export const getLocalStorage = () => {
     const adminStr = localStorage.getItem('admin');
 
     let employees = [];
-    let admin     = [];
+    let admin = [];
 
     if (employeesStr) {
         try {
