@@ -6,17 +6,19 @@ const FailedTask = ({ data }) => {
       <div className="flex justify-between items-center">
         <span className="text-xs px-4 py-1 rounded-sm bg-[#DCD9D6]/15 text-[#ffffff] tracking-wide"> Failed Task </span>
         <PriorityTag priorityMsg={data?.priority || ""} />
-        <span className="text-xs text-[#F8F8F2]/70">{data?.date || ""}</span>
+        <span className="text-xs text-[#F8F8F2]/70"> {data?.dateCreated || ""} </span>
       </div>
 
-      <h2 className="mt-5 text-xl font-semibold text-[#F8F8F2]">{data?.title || ""}</h2>
-      <h6 className="mt-1 text-sm text-[#F8F8F2]">Category : {data?.category || ""}</h6>
-      <p className="text-sm mt-3 text-[#F8F8F2]/70 leading-relaxed">{data?.description || ""}</p>
+      <h2 className="mt-5 text-xl font-semibold text-[#F8F8F2]"> {data?.title || ""} </h2>
+      <h6 className="mt-1 text-sm text-[#F8F8F2]"> Category : {data?.category || ""} </h6>
+      <p className="text-sm mt-3 text-[#F8F8F2]/70 leading-relaxed"> {data?.description || ""} </p>
 
-      <div className="flex justify-between mt-10">
+      <div className="mt-5 text-right">
+        <h6 className="text-xs text-[#F8F8F2]/70"> Due Date : {data?.dueDate || ""} </h6>
+      </div>
+
+      <div className="flex justify-between mt-5 mb-5">
         <button className="bg-red-500 py-2 px-2 text-sm rounded-md w-full"> Failed </button>
-        {/* <button className="bg-red-500 py-2 px-2 text-sm rounded-md"> Mark as Failed </button> */}
-        {/* Reason for failure can be added, text area*/}
       </div>
     </div>
   )
