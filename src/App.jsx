@@ -18,13 +18,20 @@ const App = () => {
       if (parsedUser.role === "employee") {
         setLoggedInUserData(parsedUser.employee);
       }
+      if (parsedUser.role === "admin") {
+        setLoggedInUserData(parsedUser.admin);
+      }
     }
   }, []);
 
   const handleLogin = (email, password) => {
-    if (email === "admin@taskbridge.com" && password === "12345") {
-      setUser({ role: "admin" });
-      localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin", admin }));
+    if (authData && authData.admin) {
+      const admin = authData?.admin.find((e) => email === e.email && e.password === password);
+      if (admin) {
+        setUser({ role: "admin" });
+        setLoggedInUserData(admin);
+        localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin", admin }));
+      }
     } else if (authData && authData.employees) {
       const employee = authData.employees.find((e) => email === e.email && e.password === password);
       if (employee) {
@@ -42,7 +49,7 @@ const App = () => {
   }
 
   return user.role === "admin" ? (
-    <AdminDashboard />
+    <AdminDashboard data={loggedInUserData} />
   ) : (
     <EmployeeDashboard data={loggedInUserData} />
   );

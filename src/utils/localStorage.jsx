@@ -313,7 +313,8 @@ const employee = [
 const admin = [
     {
         id: 101,
-        email: "admin@taskbridge.com",
+        firstname: "akhil",
+        email: "akhil@taskbridge.com",
         password: "12345"
     }
 ];
