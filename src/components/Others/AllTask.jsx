@@ -5,12 +5,13 @@ import PriorityTag from "../Basics/PriorityTag";
 const AllTask = () => {
 
     const authData = useContext(AuthContext);
-    
+
     return (
         <div className="pb-10">
+            <h1 className="text-[#FFDAB3] text-2xl">Employee Details :</h1>
             {authData?.employees.map((empDet, empIndex) => {
                 const authTasks = empDet.tasks;
-                console.log("empDet", authTasks)
+                console.log("empDet", authTasks);
                 return (
                     <div key={empDet.id || empIndex} className="bg-[#1B211A] rounded-2xl p-4 mt-5 border border-[#FFDAB3]/30 shadow-inner">
                         <div className="bg-[#0F1412] py-3 px-5 flex items-center rounded-xl mb-3 border border-[#FFDAB3]/20">
