@@ -1,11 +1,6 @@
-const Header = ({ data }) => {
+const Header = ({ data, handleLogout }) => {
     if (!data) {
         return <div className="text-white">Loading...</div>
-    }
-
-    const handleLogout = () => {
-        localStorage.setItem("loggedInUser", "");
-        window.location.reload();
     }
 
     const renderName = data.firstname.replace(/\b\w/g, char => char.toUpperCase());

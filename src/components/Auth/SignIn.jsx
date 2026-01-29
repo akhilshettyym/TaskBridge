@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = ({ handleLogin }) => {
-console.log("CuurentUrl", window.location)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
 
@@ -20,7 +20,7 @@ console.log("CuurentUrl", window.location)
           <input value={email} onChange={(e) => setEmail(e.target.value)} required type="email" placeholder="Enter your Email" className="w-80 bg-[#0F1412] border border-[#FFDAB3]/30 rounded-full px-5 py-3 text-[#F8F8F2] outline-none placeholder:text-gray-400 focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition" />
           <input value={password} onChange={(e) => setPassword(e.target.value)} required type="password" placeholder="Enter password" className="w-80 bg-[#0F1412] border border-[#FFDAB3]/30 rounded-full px-5 py-3 text-[#F8F8F2] outline-none placeholder:text-gray-400 focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition" />
           <button className="mt-4 w-full bg-[#FFDAB3] text-[#1B211A] font-semibold py-3 rounded-full hover:brightness-110 active:scale-95 transition-all"> Sign In </button>
-          <h4 className="text-gray-400"> Not a Registered User ? <button className="pl-3 hover:text-[#FFDAB3] transition-colors duration-300"> Sign Up </button></h4>
+          <h4 className="text-gray-400"> Not a Registered User ? <Link to="/signup" className="pl-3 hover:text-[#FFDAB3] transition-colors duration-300"> Sign Up </Link></h4>
         </form>
       </div>
     </div>
