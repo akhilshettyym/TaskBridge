@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 // STYLES
-import { labelClass, inputClass, textareaClass, orgDets, createOrgBtn, orgLeftRight, linkToSignIn, orgInfo, alreadyRegistered, mainDiv, headerDiv, headerH1, messagePTag, containerDiv, formClass, orgAdminDets, descDiv, createOrgDiv } from "../styles/SignUp";
+import { signupAlreadyRegistered, signupContainerDiv, signupCreateOrgBtn, signupCreateOrgDiv, signupDescDiv, signupFormClass, signupHeaderDiv, signupHeaderH1, signupInputClass, signupLabelClass, signupLinkToSignIn, signupMainDiv, signupMessagePTag, signupOrgAdminDets, signupOrgDets, signupOrgInfo, signupOrgLeftRight, signupTextareaClass } from "../styles/SignUp";
 
 
 
@@ -19,4 +19,4 @@ export {
     
     
     
-    labelClass, inputClass, textareaClass, orgDets, createOrgBtn, orgLeftRight, linkToSignIn, orgInfo, alreadyRegistered, mainDiv, headerDiv, headerH1, messagePTag, containerDiv, formClass, orgAdminDets, descDiv, createOrgDiv };
+    signupAlreadyRegistered, signupContainerDiv, signupCreateOrgBtn, signupCreateOrgDiv, signupDescDiv, signupFormClass, signupHeaderDiv, signupHeaderH1, signupInputClass, signupLabelClass, signupLinkToSignIn, signupMainDiv, signupMessagePTag, signupOrgAdminDets, signupOrgDets, signupOrgInfo, signupOrgLeftRight, signupTextareaClass };
