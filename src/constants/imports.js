@@ -27,6 +27,10 @@ import {
 
     allTaskChildDiv, allTaskChildInnerDiv, allTaskChildH2, allTaskMainDiv, allTaskMainH1, allTaskChildInnerH2, allTaskTasksDiv, allTaskDivSpan, allTaskDivDiv,
 
+    headerChildDiv, headerClassBtn, headerClassH1, headerClassSpan, headerLoadingDiv, headerMainDiv,
+
+    taskListNoChildDiv, taskListNoH2, taskListNoH3, taskListNoMainDiv, taskListNoTaskDiv,
+
     createTaskBtn, createTaskBtnDiv, createTaskChildDiv, createTaskFormClass, createTaskInputClass, createTaskLabelClass, createTaskLabelDesc, createTaskMainDiv, createTaskTextArea, createTaskTextAreaDiv,
 } from '../styles/styles';
 
@@ -40,6 +44,10 @@ export {
     AllTask, CreateTask, Header, TaskListNo, TaskList, AuthContext, PriorityTag, TaskCount,
 
     adminDivClass, employeeDivClass,
+
+    headerChildDiv, headerClassBtn, headerClassH1, headerClassSpan, headerLoadingDiv, headerMainDiv,
+
+    taskListNoChildDiv, taskListNoH2, taskListNoH3, taskListNoMainDiv, taskListNoTaskDiv,
 
     signinBtn, signinForm, signinFormDiv, signinHeaderDiv, signinHeaderH1, signinHeaderP, signinInputClass, signinLabelClass, signinMainDiv, signinSignUp, signinSignUpLink, signinWFull,
 

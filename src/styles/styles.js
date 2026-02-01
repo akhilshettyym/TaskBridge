@@ -64,3 +64,20 @@ export const createTaskLabelDesc = "text-sm uppercase tracking-wide text-[#FFDAB
 export const createTaskTextArea = "flex-1 bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-4 text-[#F8F8F2] outline-none resize-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition";
 export const createTaskBtnDiv = "w-full flex justify-end pt-4";
 export const createTaskBtn = "bg-[#FFDAB3] text-[#1B211A] font-semibold px-10 py-3 rounded-full hover:brightness-110 active:scale-95 transition-all";
+
+// - - - - - -
+
+export const headerLoadingDiv = "text-white";
+export const headerMainDiv = "bg-[#1B211A] p-3 rounded-xl border border-[#FFDAB3]";
+export const headerChildDiv = "flex items-end justify-between";
+export const headerClassH1 = "text-2xl font-medium";
+export const headerClassSpan = "text-2xl font-semibold";
+export const headerClassBtn = "bg-red-600 text-white py-1 px-4 rounded-lg text-lg font-medium";
+
+// - - - - - - 
+
+export const taskListNoMainDiv = "flex flex-wrap mt-10 gap-6";
+export const taskListNoChildDiv = "flex-1 min-w-56 bg-[#1B211A] border border-[#FFDAB3]/30 rounded-2xl p-6 shadow-md";
+export const taskListNoTaskDiv = "flex-1 min-w-56 bg-[#1B211A] border border-[#FFDAB3]/30 rounded-2xl p-6 shadow-md";
+export const taskListNoH2 = "text-3xl font-semibold text-[#FFDAB3]";
+export const taskListNoH3 = "mt-1 text-lg text-[#F8F8F2]/80";
