@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useState, useContext } from 'react';
+import { Link, Routes, Route, Navigate } from "react-router-dom";
+import { useState, useContext, useEffect } from 'react';
 
 import AllTask from "../components/Others/AllTask";
 import CreateTask from "../components/Others/CreateTask";
@@ -14,6 +14,13 @@ import PriorityTag from "../components/Basics/PriorityTag";
 import TaskCount from "../components/Basics/TaskCount";
 
 
+import SignIn from "../components/Auth/SignIn";
+import SignUp from "../components/Auth/SignUp";
+import EmployeeDashboard from "../components/Dashboard/EmployeeDashboard";
+import AdminDashboard from "../components/Dashboard/AdminDashboard";
+
+import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
+
 // STYLES
 import {
     signinBtn, signinForm, signinFormDiv, signinHeaderDiv, signinHeaderH1, signinHeaderP, signinInputClass, signinLabelClass, signinMainDiv, signinSignUp, signinSignUpLink, signinWFull, adminDivClass, signupAlreadyRegistered, signupContainerDiv, signupCreateOrgBtn, signupCreateOrgDiv, signupDescDiv, signupFormClass, signupHeaderDiv, signupHeaderH1, signupInputClass, signupLabelClass, signupLinkToSignIn, signupMainDiv, signupMessagePTag, signupOrgAdminDets, signupOrgDets, signupOrgInfo, signupOrgLeftRight, signupTextareaClass, employeeDivClass,
@@ -26,7 +33,9 @@ import {
 
 export {
 
-    Link, useState, useContext,
+    Link, useState, useContext, useEffect, getLocalStorage, setLocalStorage,
+
+    SignIn, SignUp, EmployeeDashboard, AdminDashboard, Navigate, Route, Routes,
 
     AllTask, CreateTask, Header, TaskListNo, TaskList, AuthContext, PriorityTag, TaskCount,
 

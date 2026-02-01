@@ -1,4 +1,5 @@
 const PriorityTag = ({ priorityMsg }) => {
+    
     if (priorityMsg === "High") {
         return (
             <span className="flex items-center gap-2 text-xs px-4 py-1 rounded-full bg-[#FFDAB3]/15 text-[#FFDAB3] uppercase tracking-wide">

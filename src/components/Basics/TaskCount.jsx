@@ -1,4 +1,5 @@
 const TaskCount = ({ taskCount = 0, taskFail, taskComplete }) => {
+    
     let bgColor = "bg-green-500";
 
     if (taskFail?.failed > 0) {

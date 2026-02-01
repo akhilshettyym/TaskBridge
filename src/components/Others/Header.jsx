@@ -1,4 +1,5 @@
 const Header = ({ data, handleLogout }) => {
+    
     if (!data) {
         return <div className="text-white">Loading...</div>
     }

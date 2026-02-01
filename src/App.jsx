@@ -1,10 +1,4 @@
-import SignIn from "./components/Auth/SignIn";
-import SignUp from "./components/Auth/SignUp";
-import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
-import AdminDashboard from "./components/Dashboard/AdminDashboard";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "./context/AuthProvider";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { SignIn, SignUp, EmployeeDashboard, AdminDashboard, useContext, useEffect, useState, AuthContext, Routes, Route, Navigate } from "./constants/imports";
 
 const App = () => {
 
@@ -12,7 +6,6 @@ const App = () => {
 
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
-
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
