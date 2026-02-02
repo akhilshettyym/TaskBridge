@@ -12,7 +12,7 @@ const AllTask = () => {
                 return (
                     <div key={empDet.id || empIndex} className={allTaskChildDiv}>
                         <div className={allTaskChildInnerDiv}>
-                            <h2 className={allTaskChildH2}>{empDet?.firstname || "Employee"}</h2>
+                            <h2 className={allTaskChildH2}>{empDet?.firstName ?? "Employee"}</h2>
 
                             <h2 className={allTaskChildInnerH2}> In-progress Tasks :
                                 <TaskCount taskCount={empDet?.taskNumbers.active ?? 0} />

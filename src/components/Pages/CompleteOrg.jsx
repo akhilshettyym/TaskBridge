@@ -1,21 +1,18 @@
-import { Link, signupAlreadyRegistered, signupContainerDiv, signupCreateOrgBtn, signupCreateOrgDiv, signupDescDiv, signupFormClass, signupHeaderDiv, signupHeaderH1, signupInputClass, signupLabelClass, signupLinkToSignIn, signupMainDiv, signupMessagePTag, signupOrgAdminDets, signupOrgDets, signupOrgInfo, signupOrgLeftRight, signupTextareaClass } from '../../constants/imports'
+import { signupContainerDiv, signupCreateOrgBtn, signupCreateOrgDiv, signupFormClass, signupHeaderDiv, signupHeaderH1, signupInputClass, signupLabelClass, signupMainDiv, signupMessagePTag, signupOrgAdminDets, signupOrgDets, signupOrgLeftRight } from '../../constants/imports'
 
-const SignUp = () => {
-
+const CompleteOrg = () => {
     return (
-
         <div className={signupMainDiv}>
 
             <div className={signupHeaderDiv}>
-                <h1 className={signupHeaderH1}> Create Your Organization </h1>
-                <p className={signupMessagePTag}> Register as an organization admin to manage employees and tasks </p>
+                <h1 className={signupHeaderH1}> Complete Your Organization </h1>
+                <p className={signupMessagePTag}> Register employees to the Org. </p>
             </div>
 
             <div className={signupContainerDiv}>
                 <form className={signupFormClass}>
                     <div className={signupOrgAdminDets}>
-                        <h2 className={signupOrgDets}> Organization Admin Details </h2>
-                        <Link to="/complete-org" className={signupLinkToSignIn}> Already have an account ? </Link>
+                        <h2 className={signupOrgDets}> Add Employee Details </h2>
                     </div>
 
                     {/* LEFT */}
@@ -44,42 +41,30 @@ const SignUp = () => {
                         </div>
                     </div>
 
-                    <div className={signupOrgInfo}>
-                        <h2 className={signupOrgDets}> Organization Information </h2>
-                    </div>
-
                     {/* ORG LEFT */}
                     <div className={signupOrgLeftRight}>
                         <div>
-                            <label className={signupLabelClass}> Organization Name </label>
-                            <input type="text" placeholder="Enter organization name" className={signupInputClass} />
+                            <label className={signupLabelClass}> Employee Id </label>
+                            <input type="text" placeholder="Employee Id (Auto Gen)" className={signupInputClass} />
                         </div>
                     </div>
 
                     {/* ORG RIGHT */}
                     <div className={signupOrgLeftRight}>
                         <div>
-                            <label className={signupLabelClass}> Organization Category </label>
-                            <input type="text" placeholder="IT, Marketing, Finance, R&D" className={signupInputClass} />
+                            <label className={signupLabelClass}> Employee Position </label>
+                            <input type="text" placeholder="Trainee, Jr. , Sr. etc." className={signupInputClass} />
                         </div>
-                    </div>
-
-                    {/* DESCRIPTION */}
-                    <div className={signupDescDiv}>
-                        <label className={signupLabelClass}> Organization Description </label>
-                        <textarea rows="5" placeholder="Briefly describe what your organization does" className={signupTextareaClass} />
                     </div>
 
                     {/* CTA */}
                     <div className={signupCreateOrgDiv}>
-                        <button className={signupCreateOrgBtn}> Create Organization </button>
-                        <Link to="/signin" className={signupAlreadyRegistered}> Already registered ? Sign In </Link>
+                        <button className={signupCreateOrgBtn}> Add Employee </button>
                     </div>
-
                 </form>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default SignUp;
+export default CompleteOrg;
