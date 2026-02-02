@@ -9,6 +9,8 @@ const Login = ({ handleLogin }) => {
     handleLogin(email, password);
     setEmail("");
     setPassword("");
+    console.log("EMAIL", email);
+    console.log("EMAIL", password);
   }
 
   return (
