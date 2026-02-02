@@ -5,7 +5,8 @@ import { useState } from "react";
 import AddEmployees from './AddEmployees';
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+// import toast from "react-hot-toast";
+
 
 const CompleteOrg = () => {
 
@@ -19,6 +20,8 @@ const CompleteOrg = () => {
     if (!(adminOrgNull?.admin) || (!adminOrgNull?.organization)) {
       alert("You need to set up an organization first.");
       navigate("/signup");
+      // toast.error("Please create an organization before adding employees.");
+      // navigate("/signup");
       return null;
     }
 
@@ -61,7 +64,6 @@ const CompleteOrg = () => {
               <h2 className={signupOrgDets}> Add Employee Details </h2>
             </div>
 
-            {/* LEFT */}
             <div className={signupOrgLeftRight}>
               <div>
                 <label className={signupLabelClass}> First Name </label>
@@ -74,7 +76,6 @@ const CompleteOrg = () => {
               </div>
             </div>
 
-            {/* RIGHT */}
             <div className={signupOrgLeftRight}>
               <div>
                 <label className={signupLabelClass}> Last Name </label>
@@ -87,7 +88,6 @@ const CompleteOrg = () => {
               </div>
             </div>
 
-            {/* POSITION */}
             <div className={signupOrgLeftRight}>
               <div>
                 <label className={signupLabelClass}> Employee Position </label>
@@ -102,11 +102,10 @@ const CompleteOrg = () => {
               </div>
             </div>
 
-            {/* CTA */}
-            {!adminOrgNull && (
+            {adminOrgNull && (
               <div className={signupCreateOrgDiv}>
-              <button type="submit" className={signupCreateOrgBtn}> Add Employee </button>
-            </div>
+                <button type="submit" className={signupCreateOrgBtn}> Add Employee </button>
+              </div>
             )}
 
           </form>

@@ -1,8 +1,16 @@
 import CompleteOrg from "./components/pages/CompleteOrg";
+import Landing from "./components/Pages/Landing";
 import { SignIn, SignUp, EmployeeDashboard, AdminDashboard, useContext, useEffect, useState, AuthContext, Routes, Route, Navigate } from "./constants/imports";
 import { getOrganizationData } from "./utils/localStorage";
+// import { Toaster } from "react-hot-toast";
+// import toast from "react-hot-toast";
+
 
 const App = () => {
+
+  // useEffect(() => {
+  //   toast.error("Toast system working");
+  // }, []);
 
   const authData = useContext(AuthContext);
   const orgData = getOrganizationData();
@@ -50,8 +58,9 @@ const App = () => {
 
   return (
     <>
+      {/* <Toaster position="top-right" toastOptions={{ style: { background: "#1B211A", color: "#FFDAB3", borderRadius: "12px", border: "1px solid rgba(255,218,179,0.2)"}}}/> */}
       <Routes>
-        <Route path="/" element={!user ? <SignIn handleLogin={handleLogin} /> : <Navigate to="/dashboard" />} />
+        <Route path="/" element={!user ? <Landing /> : <Navigate to="/dashboard" />} />
         <Route path="/signin" element={!user ? <SignIn handleLogin={handleLogin} /> : <Navigate to="/dashboard" />} />
         <Route path="/signup" element={!user ? <SignUp /> : <Navigate to="/dashboard" />} />
         <Route path="/complete-org" element={<CompleteOrg />} />
@@ -63,10 +72,12 @@ const App = () => {
             <AdminDashboard data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />
           ) : (
             <EmployeeDashboard data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />
-          )}
+          )
+        }
         />
       </Routes>
     </>
+
   );
 };
 
