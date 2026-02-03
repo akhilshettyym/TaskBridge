@@ -3,6 +3,7 @@ import { Link, signupAlreadyRegistered, signupContainerDiv, signupCreateOrgBtn, 
 import { useNavigate } from "react-router-dom";
 import { generateSequentialId, setLocalStorage } from '../../utils/localStorage';
 import { v4 as uuidv4 } from "uuid";
+import PasswordToggle from '../Basics/PasswordToggle';
 
 const SignUp = () => {
 
@@ -75,7 +76,7 @@ const SignUp = () => {
 
                         <div>
                             <label className={signupLabelClass}> Password </label>
-                            <input name="password" type="password" placeholder="Create a strong password" className={signupInputClass} />
+                            <PasswordToggle name="password" placeholder="Create a strong password" className={signupInputClass} iconClassName="top-[55%]" />
                         </div>
                     </div>
 

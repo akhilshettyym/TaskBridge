@@ -1,4 +1,4 @@
-import CompleteOrg from "./components/pages/CompleteOrg";
+import CompleteOrg from "./components/Pages/RegisterOrg";
 import Landing from "./components/Pages/Landing";
 import { SignIn, SignUp, EmployeeDashboard, AdminDashboard, useContext, useEffect, useState, AuthContext, Routes, Route, Navigate } from "./constants/imports";
 import { getOrganizationData } from "./utils/localStorage";

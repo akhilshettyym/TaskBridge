@@ -1,4 +1,5 @@
 import { useState, Link, signinBtn, signinForm, signinFormDiv, signinHeaderDiv, signinHeaderH1, signinHeaderP, signinInputClass, signinLabelClass, signinMainDiv, signinSignUp, signinSignUpLink, signinWFull } from '../../constants/imports';
+import PasswordToggle from '../Basics/PasswordToggle';
 
 const Login = ({ handleLogin }) => {
   const [email, setEmail] = useState("");
@@ -31,7 +32,9 @@ const Login = ({ handleLogin }) => {
 
           <div className={signinWFull}>
             <label className={signinLabelClass}> Password </label>
-            <input value={password} onChange={(e) => setPassword(e.target.value)} required type="password" placeholder="Enter your password" className={signinInputClass} />
+            {/* <input value={password} onChange={(e) => setPassword(e.target.value)} required type="password" placeholder="Enter your password" className={signinInputClass} /> */}
+            {/* <PasswordToggle value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" className={signinInputClass} /> */}
+            <PasswordToggle value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" className={signinInputClass} />
           </div>
 
           <button className={signinBtn}> Sign In </button>
