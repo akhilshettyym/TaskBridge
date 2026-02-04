@@ -8,14 +8,9 @@ import CreatedTasks from "./components/Dashboard/Admin/CreatedTasks";
 import Dashboard from "./components/Dashboard/Dashboard";
 import TaskStatus from "./components/Dashboard/Admin/TaskStatus";
 import { useNavigate } from "react-router-dom";
-
-
+import EmployeeManagement from "./components/Dashboard/Admin/EmployeeManagement";
 
 const App = () => {
-
-  // useEffect(() => {
-  //   toast.error("Toast system working");
-  // }, []);
 
   const navigate = useNavigate();
 
@@ -77,30 +72,41 @@ const App = () => {
     navigate("/");
   };
 
+  const getDashboardRoute = (user) => {
+    if (!user) return "/";
+    if (user.role === "admin") return "/admin/dashboard";
+    return "/dashboard";
+  };
+
+  const AdminRoute = ({ children }) => {
+    if (!user) return <Navigate to="/" />;
+    if (user.role !== "admin") return <Navigate to="/dashboard" />;
+    return children;
+  };
+
   return (
     <>
       <Toaster position="top-right" toastOptions={{ style: { background: "#1B211A", color: "#FFDAB3", borderRadius: "12px", border: "1px solid rgba(255,218,179,0.2)" } }} />
       <Routes>
-        <Route path="/" element={!user ? <Landing /> : <Navigate to="/dashboard" />} />
-        <Route path="/signin" element={!user ? <SignIn handleLogin={handleLogin} /> : <Navigate to="/dashboard" />} />
-        <Route path="/signup" element={!user ? <SignUp /> : <Navigate to="/dashboard" />} />
+        <Route path="/" element={!user ? <Landing /> : <Navigate to={getDashboardRoute(user)} />} />
+        <Route path="/signin" element={!user ? <SignIn handleLogin={handleLogin} /> : <Navigate to={getDashboardRoute(user)} />} />
+        <Route path="/signup" element={!user ? <SignUp /> : <Navigate to={getDashboardRoute(user)} />} />
         <Route path="/register-org" element={<RegisterOrg />} />
 
-        <Route path="/admin/dashboard" element={<Dashboard data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />} />
+        <Route path="/admin/dashboard" element={<AdminRoute><Dashboard data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} /></AdminRoute>} />
         <Route path="/admin/tasks" element={<CreatedTasks data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />} />
-        <Route path="/admin/employees" element={<EmployeeDetails data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />} />
         <Route path="/admin/status" element={<TaskStatus data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />} />
+        <Route path="/admin/employees" element={<EmployeeDetails data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />} />
+        <Route path="/admin/management" element={<EmployeeManagement data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />} />
 
         <Route path="/dashboard" element={
           !user ? (
             <Navigate to="/" />
-          ) : user.role === "admin" ? (
-            <AdminDashboard data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />
-          ) : (
+          ) : user.role === "employee" ? (
             <EmployeeDashboard data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />
-          )
-        }
-        />
+          ) : (
+            <Navigate to="/admin/dashboard" />
+          )} />
       </Routes>
     </>
   );

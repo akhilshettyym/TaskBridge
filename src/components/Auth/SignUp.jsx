@@ -28,10 +28,10 @@ const SignUp = () => {
                 lastName: e.target.lastName.value,
                 email: e.target.email.value,
                 password: e.target.password.value,
+                tasks: [],
             },
             employees: [],
         };
-
         setLocalStorage(taskbridge);
         navigate("/register-org");
     };

@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { FiGrid, FiClipboard, FiUsers, FiBarChart2 } from "react-icons/fi";
+import { FiGrid, FiClipboard, FiUsers, FiBarChart2, FiBarChart } from "react-icons/fi";
+import TaskCount from "../../Basics/TaskCount";
 
 const AdminControl = () => {
     const { pathname } = useLocation();
@@ -7,8 +8,9 @@ const AdminControl = () => {
     const navItems = [
         { label: "Dashboard", path: "/admin/dashboard", icon: <FiGrid size={18} /> },
         { label: "Created Tasks", path: "/admin/tasks", icon: <FiClipboard size={18} /> },
+        { label: "Task Status", path: "/admin/status", icon: <FiBarChart2 size={18} /> },
         { label: "Employee Details", path: "/admin/employees", icon: <FiUsers size={18} /> },
-        { label: "Task Status", path: "/admin/status", icon: <FiBarChart2 size={18} /> }
+        { label: "Employee Management", path: "/admin/management", icon: <FiBarChart size={18} /> }
     ];
 
     return (

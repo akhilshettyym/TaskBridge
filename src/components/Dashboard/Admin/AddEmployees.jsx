@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import RemoveEmp from "../../Basics/RemoveEmp";
-// import toast from "react-hot-toast";
 import { getLocalStorage, setLocalStorage } from "../../../utils/localStorage";
+import toast from "react-hot-toast";
 
 const AddEmployees = ({ employees, setEmployees }) => {
 
@@ -22,7 +22,7 @@ const AddEmployees = ({ employees, setEmployees }) => {
     );
     setLocalStorage(taskbridge);
     setEmployees([...taskbridge.employees]);
-    //  toast.success("Employee removed successfully");
+     toast.success("Employee removed successfully");
   };
 
   return (

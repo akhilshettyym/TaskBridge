@@ -399,7 +399,6 @@ export const setLocalStorage = (data) => {
     console.warn("Invalid taskbridge data, not saving:", data);
     return;
   }
-
   localStorage.setItem("taskbridge", JSON.stringify(data));
 };
 

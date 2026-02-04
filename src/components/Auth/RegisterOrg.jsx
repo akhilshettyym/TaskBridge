@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import { generateSequentialId, getLocalStorage, setLocalStorage } from "../../utils/localStorage";
 import PasswordToggle from "../Basics/PasswordToggle";
 import AddEmployees from "../Dashboard/Admin/AddEmployees";
+import toast from "react-hot-toast";
 
 const RegisterOrg = () => {
   const navigate = useNavigate();
@@ -20,13 +21,13 @@ const RegisterOrg = () => {
     e.preventDefault();
 
     if (!taskbridge?.admin || !taskbridge?.organization) {
-      // toast.error("Please create an organization first.");
+      toast.error("Please create an organization first.");
       navigate("/signup");
       return;
     }
 
     if (!dob) {
-      // toast.error("Please select date of birth");
+      toast.error("Please select date of birth");
       return;
     }
 
@@ -50,7 +51,7 @@ const RegisterOrg = () => {
     );
 
     if (emailExists) {
-      // toast.error("Employee already exists");
+      toast.error("Employee already exists");
       return;
     }
 
@@ -64,7 +65,7 @@ const RegisterOrg = () => {
     setEmployees(updatedEmployees);
     setDob(null);
     form.reset();
-    // toast.success("Employee added");
+    toast.success("Employee added");
   };
 
   return (

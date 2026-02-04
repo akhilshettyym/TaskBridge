@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { generateSequentialId, getLocalStorage, setLocalStorage } from "../../../utils/localStorage";
 import { AuthContext } from "../../../context/AuthProvider";
+import toast from "react-hot-toast";
 
 const CreateTask = () => {
     const [employees, setEmployees] = useState([]);
@@ -33,7 +34,9 @@ const CreateTask = () => {
     const handleCreateTask = (e) => {
         e.preventDefault();
         if (!formData.assignedTo || !dueDate) return;
+
         const taskbridge = getLocalStorage();
+
         const taskPayload = {
             id: generateSequentialId("task"),
             title: formData.title.trim(),
@@ -43,7 +46,9 @@ const CreateTask = () => {
             createdAt: creationDate.toISOString(),
             dueDate: dueDate.toISOString(),
             status: "new",
+            assignedTo: formData.assignedTo,
         };
+
         const updatedEmployees = taskbridge.employees.map((emp) =>
             emp.id === formData.assignedTo
                 ? {
@@ -52,18 +57,26 @@ const CreateTask = () => {
                     taskNumbers: {
                         ...emp.taskNumbers,
                         newTask: emp.taskNumbers.newTask + 1,
-                        // active: emp.taskNumbers.active + 1,
                     },
                 }
                 : emp
         );
+
+        const updatedAdmin = {
+            ...taskbridge.admin,
+            tasks: [...(taskbridge.admin.tasks || []), taskPayload],
+        };
+
         const updatedTaskbridge = {
             ...taskbridge,
+            admin: updatedAdmin,
             employees: updatedEmployees,
         };
+
         updateAuthData(updatedTaskbridge);
         setDueDate(null);
         setFormData({ title: "", assignedTo: "", category: "", priority: "Medium", description: "" });
+        toast.success("Task Created Successfully");
     };
 
     return (
