@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import RemoveEmp from "../Basics/RemoveEmp";
+import RemoveEmp from "../../Basics/RemoveEmp";
 // import toast from "react-hot-toast";
-import { getLocalStorage, setLocalStorage } from "../../utils/localStorage";
+import { getLocalStorage, setLocalStorage } from "../../../utils/localStorage";
 
 const AddEmployees = ({ employees, setEmployees }) => {
 

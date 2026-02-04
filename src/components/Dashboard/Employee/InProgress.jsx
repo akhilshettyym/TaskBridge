@@ -1,5 +1,5 @@
-import { taskListCategoryH6, taskListChildDiv, taskListDateSpanClass, taskListDescP, taskListInnerDiv, taskListInnerH6, taskListInProBtnDiv, taskListInProBtnGreen, taskListInProBtnRed, taskListMainDiv, taskListTitleH2, taskListTitleSpanClass, PriorityTag } from "../../constants/imports";
-import DateConversion from "../Basics/DateConversion";
+import { taskListCategoryH6, taskListChildDiv, taskListDateSpanClass, taskListDescP, taskListInnerDiv, taskListInnerH6, taskListInProBtnDiv, taskListInProBtnGreen, taskListInProBtnRed, taskListMainDiv, taskListTitleH2, taskListTitleSpanClass, PriorityTag } from "../../../constants/imports";
+import DateConversion from "../../Basics/DateConversion";
 
 const InProgress = ({ data }) => {
 

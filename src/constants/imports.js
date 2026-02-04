@@ -1,21 +1,21 @@
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useContext, useEffect } from 'react';
-import AllTask from "../components/Others/AllTask";
-import CreateTask from "../components/Others/CreateTask";
-import Header from "../components/Others/Header";
-import TaskListNo from "../components/Others/TaskListNo";
-import TaskList from "../components/TaskList/TaskList";
+import EmployeeDetails from "../components/Dashboard/Admin/EmployeeDetails";
+import CreateTask from "../components/Dashboard/Admin/Createtask";
+import Header from "../components/Basics/Header";
+import TaskListNo from "../components/Dashboard/Employee/TaskListNo";
+import TaskList from "../components/Dashboard/Employee/TaskList";
 import { AuthContext } from "../context/AuthProvider";
 import PriorityTag from "../components/Basics/PriorityTag";
 import TaskCount from "../components/Basics/TaskCount";
 import SignIn from "../components/Auth/SignIn";
 import SignUp from "../components/Auth/SignUp";
-import EmployeeDashboard from "../components/Dashboard/EmployeeDashboard";
-import AdminDashboard from "../components/Dashboard/AdminDashboard";
-import InProgress from "../components/TaskList/InProgress";
-import CompletedTask from "../components/TaskList/CompletedTask";
-import FailedTask from "../components/TaskList/FailedTask";
-import NewTask from "../components/TaskList/NewTask";
+import EmployeeDashboard from "../components/Dashboard/Employee/EmployeeDashboard";
+import AdminDashboard from "../components/Dashboard/Admin/AdminDashboard";
+import InProgress from "../components/Dashboard/Employee/InProgress";
+import CompletedTask from "../components/Dashboard/Employee/CompletedTask";
+import FailedTask from "../components/Dashboard/Employee/FailedTask";
+import NewTask from "../components/Dashboard/Employee/NewTask";
 import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 
 // STYLES
@@ -43,7 +43,7 @@ export {
 
     SignIn, SignUp, EmployeeDashboard, AdminDashboard, Navigate, Route, Routes,
 
-    AllTask, CreateTask, Header, TaskListNo, TaskList, PriorityTag, TaskCount,
+    EmployeeDetails, CreateTask, Header, TaskListNo, TaskList, PriorityTag, TaskCount,
 
     InProgress, CompletedTask, FailedTask, NewTask,
     

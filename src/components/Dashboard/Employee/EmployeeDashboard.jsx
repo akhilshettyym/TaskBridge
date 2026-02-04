@@ -1,4 +1,4 @@
-import { Header, TaskListNo, TaskList, employeeDivClass } from "../../constants/imports";
+import { Header, TaskListNo, TaskList, employeeDivClass } from "../../../constants/imports";
 
 const EmployeeDashboard = ({ data, handleLogout, orgData }) => {
 

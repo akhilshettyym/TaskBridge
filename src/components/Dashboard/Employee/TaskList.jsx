@@ -1,4 +1,4 @@
-import { InProgress, CompletedTask, FailedTask, NewTask, taskListMainCompDiv } from "../../constants/imports";
+import { InProgress, CompletedTask, FailedTask, NewTask, taskListMainCompDiv } from "../../../constants/imports";
 
 const TaskList = ({ data }) => {
 

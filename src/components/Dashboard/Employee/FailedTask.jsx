@@ -1,5 +1,5 @@
-import { taskListCategoryH6, taskListChildDiv, taskListDateSpanClass, taskListDescP, taskListFailedBtnClass, taskListFailedBtnDiv, taskListInnerDiv, taskListInnerH6, taskListMainDiv, taskListTitleH2, taskListTitleSpanClass, PriorityTag } from "../../constants/imports";
-import DateConversion from "../Basics/DateConversion";
+import { taskListCategoryH6, taskListChildDiv, taskListDateSpanClass, taskListDescP, taskListFailedBtnClass, taskListFailedBtnDiv, taskListInnerDiv, taskListInnerH6, taskListMainDiv, taskListTitleH2, taskListTitleSpanClass, PriorityTag } from "../../../constants/imports";
+import DateConversion from "../../Basics/DateConversion";
 
 const FailedTask = ({ data }) => {
 

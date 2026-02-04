@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { generateSequentialId, getLocalStorage, setLocalStorage } from "../../utils/localStorage";
 import PasswordToggle from "../Basics/PasswordToggle";
-import AddEmployees from "./AddEmployees";
+import AddEmployees from "../Dashboard/Admin/AddEmployees";
 
 const RegisterOrg = () => {
   const navigate = useNavigate();

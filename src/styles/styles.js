@@ -76,7 +76,7 @@ export const headerClassBtn = "bg-red-600 text-white py-1 px-4 rounded-lg text-l
 
 // - - - - - - 
 
-export const taskListNoMainDiv = "flex flex-wrap mt-10 gap-6";
+export const taskListNoMainDiv = "flex flex-wrap mt-5 gap-6";
 export const taskListNoChildDiv = "flex-1 min-w-56 bg-[#1B211A] border border-[#FFDAB3]/30 rounded-2xl p-6 shadow-md";
 export const taskListNoTaskDiv = "flex-1 min-w-56 bg-[#1B211A] border border-[#FFDAB3]/30 rounded-2xl p-6 shadow-md";
 export const taskListNoH2 = "text-3xl font-semibold text-[#FFDAB3]";
