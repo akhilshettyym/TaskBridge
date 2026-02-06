@@ -11,6 +11,7 @@ import EmployeeManagement from "./components/Dashboard/Admin/EmployeeManagement"
 import EmpTaskStatus from "./components/Dashboard/Employee/EmpTaskStatus";
 import TaskLifeCycle from "./components/Dashboard/Employee/TaskLifeCycle";
 import { useNavigate } from "react-router-dom";
+import Details from "./components/Dashboard/Employee/Details";
 
 const App = () => {
   const navigate = useNavigate();
@@ -114,6 +115,7 @@ const App = () => {
         <Route path="/employee/newtasks" element={loggedInUserData && (<NewTask data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />)} />
         <Route path="/employee/inprogress" element={loggedInUserData && (<InProgress data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />)} />
         <Route path="/employee/tasklifecycle" element={loggedInUserData && (<TaskLifeCycle data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />)} />
+        <Route path="/employee/details" element={loggedInUserData && (<Details data={loggedInUserData} handleLogout={handleLogout} orgData={orgData} />)} />
       </Routes>
     </>
   );
