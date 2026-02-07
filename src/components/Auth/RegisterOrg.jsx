@@ -129,11 +129,14 @@ const RegisterOrg = () => {
       <AddEmployees employees={employees} setEmployees={setEmployees} />
 
       <div className="w-full flex flex-col items-center pt-2">
-        <button onClick={() => navigate("/signin")} className="bg-[#FFDAB3] text-[#1B211A] font-bold px-14 py-4 rounded-full hover:brightness-110 active:scale-95 transition-all uppercase"> Register Org </button>
+        <button onClick={() => {
+          toast.success("Organization Registered Successfully..");
+          navigate("/signin");
+        }} className="bg-[#FFDAB3] text-[#1B211A] font-bold px-14 py-4 rounded-full hover:brightness-110 active:scale-95 transition-all uppercase"> Register Org </button>
 
         <p className="mt-3 text-sm text-[#FFDAB3]/60 text-center"> You can add more employees later from the dashboard. </p>
       </div>
-    </div>
+    </div >
   );
 };
 
