@@ -1,19 +1,25 @@
+import { useContext } from "react";
 import { taskListCompBtnClass, taskListCompBtnDiv, taskListFailedBtnClass, taskListFailedBtnDiv, taskListInProBtnDiv, taskListInProBtnGreen, taskListInProBtnRed } from "../../../styles/styles";
+import { getLocalStorage } from "../../../utils/localStorage";
 import DateConversion from "../../Basics/DateConversion";
 import PriorityTag from "../../Basics/PriorityTag";
 import { useLocation } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
+import toast from "react-hot-toast";
 
 const TaskCard = ({ task }) => {
-  
   const location = useLocation();
-  const { id, status, title, category, description, priority, createdAt, dueDate } = task;
+  const { updateAuthData } = useContext(AuthContext);
+
+  const { id, status, title, category, description, priority, createdAt, dueDate, assignedTo } = task;
+
   const isStatusPage = location.pathname.startsWith("/employee/taskstatus");
 
   const getStatusLabel = () => {
     switch (status) {
       case "new":
         return "New Task";
-      case "inProgress":
+      case "inprogress":
         return "Task In Progress";
       case "completed":
         return "Completed Task";
@@ -24,35 +30,110 @@ const TaskCard = ({ task }) => {
     }
   };
 
+  const updateTaskStatus = (newStatus, updateCounters, successMsg) => {
+    const taskbridge = getLocalStorage();
+
+    const updatedEmployees = taskbridge.employees.map((emp) => {
+      if (emp.id !== assignedTo) return emp;
+
+      return {
+        ...emp,
+        tasks: emp.tasks.map((t) =>
+          t.id === id ? { ...t, status: newStatus } : t
+        ),
+        taskNumbers: updateCounters(emp.taskNumbers),
+      };
+    });
+
+    const updatedAdmin = {
+      ...taskbridge.admin,
+      tasks: taskbridge.admin.tasks.map((t) =>
+        t.id === id ? { ...t, status: newStatus } : t
+      ),
+    };
+
+    updateAuthData({
+      ...taskbridge,
+      admin: updatedAdmin,
+      employees: updatedEmployees,
+    });
+
+    toast.success(successMsg);
+  };
+
+  const handleAcceptTask = () =>
+    updateTaskStatus(
+      "inprogress",
+      (nums) => ({
+        ...nums,
+        newTask: Math.max(nums.newTask - 1, 0),
+        active: nums.active + 1,
+      }),
+      "Task accepted and moved to In-Progress"
+    );
+
+  const handleRejectTask = () =>
+    updateTaskStatus(
+      "failed",
+      (nums) => ({
+        ...nums,
+        newTask: Math.max(nums.newTask - 1, 0),
+        failed: nums.failed + 1,
+      }),
+      "Task moved to Failed"
+    );
+
+  const handleMarkAsComplete = () =>
+    updateTaskStatus(
+      "completed",
+      (nums) => ({
+        ...nums,
+        active: Math.max(nums.active - 1, 0),
+        completed: nums.completed + 1,
+      }),
+      "Task marked as Completed"
+    );
+
+  const handleMarkAsFailed = () =>
+    updateTaskStatus(
+      "failed",
+      (nums) => ({
+        ...nums,
+        active: Math.max(nums.active - 1, 0),
+        failed: nums.failed + 1,
+      }),
+      "Task marked as Failed"
+    );
+
   const getButtons = () => {
     switch (status) {
       case "new":
         return (
           <div className="grid grid-cols-2 gap-3 w-full">
-            <button className="py-2 px-6 rounded-sm text-sm font-semibold bg-green-500 text-white border border-green-500 uppercase hover:bg-green-700 transition-colors"> Accept Task </button>
-            <button className="py-2 px-6 rounded-sm text-sm font-semibold bg-red-500 text-white border border-red-500 uppercase hover:bg-red-700 transition-colors"> Reject Task </button>
+            <button onClick={handleAcceptTask} className="py-2 px-6 rounded-sm text-sm font-semibold bg-green-500 text-white border border-green-500 uppercase hover:bg-green-700 transition-colors"> Accept Task </button>
+            <button onClick={handleRejectTask} className="py-2 px-6 rounded-sm text-sm font-semibold bg-red-500 text-white border border-red-500 uppercase hover:bg-red-700 transition-colors"> Reject Task </button>
           </div>
         );
 
-      case "inProgress":
+      case "inprogress":
         return (
-          <div className={taskListInProBtnDiv}>
-            <button className={taskListInProBtnGreen}> Mark as Completed </button>
-            <button className={taskListInProBtnRed}> Mark as Failed </button>
+          <div className="grid grid-cols-2 gap-3 w-full">
+            <button onClick={handleMarkAsComplete} className="px-6 rounded-sm text-sm font-semibold bg-green-500 text-white border border-green-500 uppercase hover:bg-green-700 transition-colors"> Mark as Completed </button>
+            <button onClick={handleMarkAsFailed} className="px-6 rounded-sm text-sm font-semibold bg-red-500 text-white border border-red-500 uppercase hover:bg-red-700 transition-colors"> Mark as Failed </button>
           </div>
         );
 
       case "completed":
         return (
-          <div className={taskListCompBtnDiv}>
-            <button className={taskListCompBtnClass} disabled> Completed </button>
+          <div className="grid gap-3 w-full">
+            <button className="py-2 px-6 rounded-sm text-sm font-semibold text-green-500 border border-green-500 uppercase" disabled> Completed </button>
           </div>
         );
 
       case "failed":
         return (
-          <div className={taskListFailedBtnDiv}>
-            <button className={taskListFailedBtnClass} disabled> Failed </button>
+          <div className="grid gap-3 w-full">
+            <button className="py-2 px-6 rounded-sm text-sm font-semibold text-red-500 border border-red-500 uppercase" disabled> Failed </button>
           </div>
         );
 
@@ -62,10 +143,12 @@ const TaskCard = ({ task }) => {
   };
 
   return (
-    <div key={id} className="bg-[#FFDAB3]/10 rounded-2xl border border-[#FFDAB3]/30 hover:border-[#FFDAB3]/50 transition-colors flex flex-col h-full">
+    <div className="bg-[#FFDAB3]/10 rounded-2xl border border-[#FFDAB3]/30 hover:border-[#FFDAB3]/50 transition-colors flex flex-col h-full">
       <div className="px-2 py-2 border-b border-[#FFDAB3]/20">
         <div className="flex items-center justify-between gap-2 px-4 py-2 bg-[#1B211A] rounded-2xl border border-[#FFDAB3]/25">
-          <h3 className="text-[#FFDAB3] font-medium text-md leading-tight line-clamp-2 flex-1 uppercase"> {title} </h3>
+          <h3 className="text-[#FFDAB3] font-medium text-md uppercase flex-1">
+            {title}
+          </h3>
           <PriorityTag priorityMsg={priority} />
         </div>
       </div>
@@ -74,12 +157,11 @@ const TaskCard = ({ task }) => {
         <div className="flex justify-between items-center">
           <span className="font-medium uppercase">Status</span>
           <span className={`px-4 rounded-2xl text-sm font-bold uppercase border ${{
-              new: "bg-amber-100 text-amber-700 border-amber-200",
-              inProgress: "bg-blue-100 text-blue-700 border-blue-200",
-              completed: "bg-emerald-100 text-emerald-700 border-emerald-200",
-              failed: "bg-red-100 text-red-700 border-red-200",
-            }[status] || "bg-gray-100 text-gray-600 border-gray-200"
-            }`}>
+            new: "bg-amber-100 text-amber-700 border-amber-200",
+            inprogress: "bg-blue-100 text-blue-700 border-blue-200",
+            completed: "bg-emerald-100 text-emerald-700 border-emerald-200",
+            failed: "bg-red-100 text-red-700 border-red-200",
+          }[status]}`}>
             {getStatusLabel()}
           </span>
         </div>
@@ -90,23 +172,27 @@ const TaskCard = ({ task }) => {
         </div>
 
         <div className="flex justify-between text-sm">
-          <span> Created :{" "} <span className="font-medium text-[#FFDAB3]">
-            <DateConversion convertDate={createdAt} />
-          </span>
+          <span> Created :{" "}
+            <span className="font-medium text-[#FFDAB3]">
+              <DateConversion convertDate={createdAt} />
+            </span>
           </span>
 
-          <span> Due :{" "} <span className="font-medium text-[#FFDAB3]">
-            <DateConversion convertDate={dueDate} />
-          </span>
+          <span> Due :{" "}
+            <span className="font-medium text-[#FFDAB3]">
+              <DateConversion convertDate={dueDate} />
+            </span>
           </span>
         </div>
 
-        <div className="text-sm leading-relaxed">
+        <div className="text-sm">
           <span className="font-medium">Description :</span>
-          <span className="ml-2 text-[#FFDAB3]"> {description || "No description provided"} </span>
+          <span className="ml-2 text-[#FFDAB3]">
+            {description || "No description provided"}
+          </span>
         </div>
 
-        <span className="text-[#F8F8F2]/60 text-sm"> Task ID: {id} </span>
+        <span className="text-[#F8F8F2]/60 text-sm">Task ID: {id}</span>
       </div>
 
       {!isStatusPage && (

@@ -3,7 +3,7 @@ import EmployeeControl from "./EmployeeControl";
 import TaskCard from "./TaskCard";
 
 const InProgress = ({ data, handleLogout, orgData }) => {
-  const inProgress = data?.tasks?.filter((e) => e.status === "inProgress") || [];
+  const inProgress = data?.tasks?.filter((e) => e.status === "inprogress") || [];
 
   return (
     <div className="h-screen w-full p-10 overflow-auto">

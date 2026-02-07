@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const MAX_ATTEMPTS = 3;
 const LOCK_TIME = 5 * 60 * 1000;
 
-const inputClass = "uppercase mt-2 w-full appearance-none bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition";
+const inputClass = "mt-2 w-full appearance-none bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition";
 
 const Details = ({ data, handleLogout, orgData }) => {
   const [taskbridge, setTaskbridge] = useState(JSON.parse(localStorage.getItem("taskbridge")));
