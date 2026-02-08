@@ -1,15 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { allTaskDivDiv, allTaskDivSpan, allTaskTasksDiv, AuthContext } from "../../../constants/imports";
 import DateConversion from "../../Basics/DateConversion";
 import AdminControl from "./AdminControl";
-import RemoveTask from "../../Basics/RemoveTask";
 import PriorityTag from "../../Basics/PriorityTag";
 import Header from "../../Basics/Header";
+import EditTaskModal from "./EditTaskModal";
 
 const CreatedTasks = ({ data, handleLogout, orgData }) => {
-    
+
     const authData = useContext(AuthContext);
+    
     const admin = authData?.admin ?? {};
+    const [editingTask, setEditingTask] = useState(null);
 
     return (
         <div className="h-screen w-full p-10">
@@ -36,7 +38,7 @@ const CreatedTasks = ({ data, handleLogout, orgData }) => {
                     {(!admin?.tasks || admin.tasks.length === 0) ? (
                         <div className="text-center py-8 text-[#F8F8F2]/60"> No tasks created yet </div>
                     ) : (
-                        admin.tasks.map((task) => (
+                        admin?.tasks.map((task) => (
                             <div key={task.id} className={allTaskTasksDiv}>
                                 <span className={allTaskDivSpan}>{task.title}</span>
                                 <span className={allTaskDivSpan}>{task.category}</span>
@@ -50,7 +52,13 @@ const CreatedTasks = ({ data, handleLogout, orgData }) => {
                                 <div className={allTaskDivDiv}>
                                     <PriorityTag priorityMsg={task.priority} />
                                 </div>
-                                <RemoveTask taskId={task.id} />
+
+                                <button onClick={() => task.status === "new" && setEditingTask(task)} disabled={task.status !== "new"}
+                                    className={`py-1 px-4 text-sm rounded-md border font-semibold transition ${task.status === "new"
+                                            ? "border-[#957C62] text-[#FFDAB3] hover:bg-[#957C62]"
+                                            : "border-[#555] text-[#777] bg-[#2A2A2A] cursor-not-allowed opacity-60"
+                                        }`}> Edit </button>
+                                {editingTask && (<EditTaskModal task={editingTask} onClose={() => setEditingTask(null)} />)}
                             </div>
                         ))
                     )}
