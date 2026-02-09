@@ -1,12 +1,12 @@
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { getLocalStorage, setLocalStorage } from "../../utils/localStorage";
-import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-
+import ConfirmModal from "./ConfirmModal";
 
 const RemoveTask = ({ taskId }) => {
-
     const { updateAuthData } = useContext(AuthContext);
+    const [showConfirm, setShowConfirm] = useState(false);
 
     const handleDeleteTask = () => {
         const taskbridge = getLocalStorage() || { admin: {}, employees: [] };
@@ -40,10 +40,10 @@ const RemoveTask = ({ taskId }) => {
             });
 
             if (taskFound && affectedEmployee?.id === emp.id) {
-                const newTaskCount = updatedTasks.filter(t => t.status === "new" || t.newTask).length;
-                const activeCount = updatedTasks.filter(t => t.status === "active" || t.active).length;
-                const completedCount = updatedTasks.filter(t => t.completed).length;
-                const failedCount = updatedTasks.filter(t => t.failed).length;
+                const newTaskCount = updatedTasks.filter(t => t.status === "new").length;
+                const activeCount = updatedTasks.filter(t => t.status === "active").length;
+                const completedCount = updatedTasks.filter(t => t.status === "completed").length;
+                const failedCount = updatedTasks.filter(t => t.status === "failed").length;
 
                 return {
                     ...emp,
@@ -54,9 +54,10 @@ const RemoveTask = ({ taskId }) => {
                         active: activeCount,
                         completed: completedCount,
                         failed: failedCount,
-                    }
+                    },
                 };
             }
+
             return emp;
         });
 
@@ -78,11 +79,15 @@ const RemoveTask = ({ taskId }) => {
         updateAuthData(updatedTaskbridge);
 
         toast.success("Task removed successfully");
-        console.log("✅ Task deleted from employee and admin:", taskId);
+        setShowConfirm(false);
     };
 
     return (
-        <button onClick={handleDeleteTask} className="py-1 px-4 text-sm rounded-md bg-red-500 border font-semibold border-red-600 text-[#FFDAB3] hover:bg-red-600 transition"> Delete </button>
+        <>
+            <button onClick={() => setShowConfirm(true)} className="py-1 px-4 text-sm rounded-md bg-red-500 border font-semibold border-red-600 text-[#FFDAB3] hover:bg-red-600 transition"> Delete </button>
+
+            <ConfirmModal isOpen={showConfirm} title="Delete Task" message="Are you sure you want to delete this task? This action cannot be undone." onCancel={() => setShowConfirm(false)} onConfirm={handleDeleteTask} btnTitle={"Delete"} />
+        </>
     );
 };
 

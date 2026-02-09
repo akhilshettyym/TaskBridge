@@ -16,7 +16,7 @@ const FailedTaskModal = ({ onClose, onSave }) => {
 
                 <h2 className="text-xl font-bold uppercase text-[#FFDAB3] text-center"> Reason for Failure </h2>
 
-                <textarea rows={6} value={reason} onChange={(e) => setReason(e.target.value)} className="mt-4 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-3 text-[#FFDAB3] outline-none" placeholder="Explain why this task failed..." />
+                <textarea rows={6} value={reason} onChange={(e) => setReason(e.target.value)} className="mt-4 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-3 text-[#FFDAB3] outline-none" placeholder="Explain why this task failed..." />
 
                 <p className="mt-2 text-xs text-[#FFDAB3]/60">
                     Minimum 15 words or 2 lines. Only meaningful text allowed.

@@ -1,4 +1,4 @@
-import { Header, TaskListNo, TaskList, employeeDivClass } from "../../../constants/imports";
+import { Header, TaskListNo } from "../../../constants/imports";
 import EmployeeControl from "./EmployeeControl";
 import TaskStatus from "./EmpTaskStatus";
 
@@ -7,7 +7,7 @@ const EmployeeDashboard = ({ data, handleLogout, orgData }) => {
   if (!data) return null;
 
   return (
-    <div className={employeeDivClass}>
+    <div className="p-10 bg-[#21351] h-screen">
       <Header data={data} handleLogout={handleLogout} orgData={orgData} />
       <EmployeeControl />
       <TaskListNo data={data} />

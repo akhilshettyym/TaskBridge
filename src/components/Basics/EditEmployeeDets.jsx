@@ -57,22 +57,22 @@ const EditEmployeeDets = ({ emp, setEmployees }) => {
                         <div className="px-6 py-5 flex flex-col gap-4">
                             <div>
                                 <label className="text-sm uppercase text-[#FFDAB3]/80"> First Name </label>
-                                <input name="firstName" value={formData.firstName} onChange={handleChange} className="mt-1 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-2 text-[#FFDAB3] outline-none focus:border-[#FFDAB3]" />
+                                <input name="firstName" value={formData.firstName} onChange={handleChange} className="mt-1 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-2 text-[#FFDAB3] outline-none focus:border-[#FFDAB3]" />
                             </div>
 
                             <div>
                                 <label className="text-sm uppercase text-[#FFDAB3]/80"> Last Name </label>
-                                <input name="lastName" value={formData.lastName} onChange={handleChange} className="mt-1 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-2 text-[#FFDAB3] outline-none focus:border-[#FFDAB3]" />
+                                <input name="lastName" value={formData.lastName} onChange={handleChange} className="mt-1 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-2 text-[#FFDAB3] outline-none focus:border-[#FFDAB3]" />
                             </div>
 
                             <div>
                                 <label className="text-sm uppercase text-[#FFDAB3]/80"> Position </label>
-                                <input name="position" value={formData.position} onChange={handleChange} className="mt-1 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-2 text-[#FFDAB3] outline-none focus:border-[#FFDAB3]" />
+                                <input name="position" value={formData.position} onChange={handleChange} className="mt-1 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-2 text-[#FFDAB3] outline-none focus:border-[#FFDAB3]" />
                             </div>
 
                             <div>
                                 <label className="text-sm uppercase text-[#FFDAB3]/80"> Email </label>
-                                <input name="email" value={formData.email} onChange={handleChange} className="mt-1 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-2 text-[#FFDAB3] outline-none focus:border-[#FFDAB3]" />
+                                <input name="email" value={formData.email} onChange={handleChange} className="mt-1 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-2 text-[#FFDAB3] outline-none focus:border-[#FFDAB3]" />
                             </div>
                         </div>
 

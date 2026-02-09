@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 const MAX_ATTEMPTS = 3;
 const LOCK_TIME = 5 * 60 * 1000;
 
-const inputClass = "mt-2 w-full appearance-none bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition";
+const inputClass = "mt-2 w-full appearance-none bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition";
 
 const disabledInput = `${inputClass} opacity-60 cursor-not-allowed`;
 
@@ -154,9 +154,9 @@ const AdminDetails = ({ data, handleLogout, orgData }) => {
             <h1 className="text-center font-bold text-[#FFDAB3] text-xl uppercase"> Admin Details </h1>
             <hr className="my-5 border border-[#FFDAB3]/40" />
 
-            <div className="bg-[#1B211A] p-4 rounded-xl border border-[#FFDAB3]/30 mb-6 flex items-center text-sm text-[#FFDAB3]">
+            <div className="bg-[#1B211A] p-4 rounded-2xl border border-[#FFDAB3]/30 mb-6 flex items-center text-sm text-[#FFDAB3]">
                 <div className="w-1/3 text-left uppercase font-semibold"> ID : <span className="font-semibold">{admin?.id}</span></div>
-                <div className="w-1/3 text-center"> Email :{" "}<span className="font-semibold lowercase"> {admin?.email} </span></div>
+                <div className="w-1/3 text-center text-md"> Email :{" "}<span className="font-semibold lowercase"> {admin?.email} </span></div>
                 <div className="w-1/3 text-right uppercase font-semibold"> Org ID : <span className="font-semibold">{organization?.id}</span></div>
             </div>
 

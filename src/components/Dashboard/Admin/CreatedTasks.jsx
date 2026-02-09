@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { allTaskDivDiv, allTaskDivSpan, allTaskTasksDiv, AuthContext } from "../../../constants/imports";
+import { allTaskDivDiv, AuthContext } from "../../../constants/imports";
 import DateConversion from "../../Basics/DateConversion";
 import AdminControl from "./AdminControl";
 import PriorityTag from "../../Basics/PriorityTag";
@@ -24,7 +24,7 @@ const CreatedTasks = ({ data, handleLogout, orgData }) => {
                 <hr className="my-5 border border-[#FFDAB3]/40" />
 
                 <div className="bg-[#1B211A] rounded-2xl p-4 mt-5 border border-[#FFDAB3]/30 shadow-inner">
-                    <div className="bg-[#FFDAB3]/20 py-3 px-5 flex items-center rounded-xl mb-3 border border-[#FFDAB3]/10">
+                    <div className="bg-[#FFDAB3]/20 py-3 px-5 flex items-center rounded-2xl mb-3 border border-[#FFDAB3]/10">
                         <span className="w-1/6 text-[#FFDAB3] text-sm font-medium uppercase">Title</span>
                         <span className="w-1/6 text-[#FFDAB3] text-sm font-medium uppercase">Category</span>
                         <span className="w-1/6 text-[#FFDAB3] text-sm font-medium uppercase">Status</span>
@@ -39,14 +39,14 @@ const CreatedTasks = ({ data, handleLogout, orgData }) => {
                         <div className="text-center py-8 text-[#F8F8F2]/60"> No tasks created yet </div>
                     ) : (
                         admin?.tasks.map((task) => (
-                            <div key={task.id} className={allTaskTasksDiv}>
-                                <span className={allTaskDivSpan}>{task.title}</span>
-                                <span className={allTaskDivSpan}>{task.category}</span>
-                                <span className={allTaskDivSpan}>{task.status}</span>
-                                <span className={allTaskDivSpan}>
+                            <div key={task.id} className="bg-[#0F1412] py-3 px-5 flex items-center rounded-2xl mb-3 border border-[#FFDAB3]/20">
+                                <span className="w-1/6 text-[#FFDAB3] text-sm font-medium capitalize">{task.title}</span>
+                                <span className="w-1/6 text-[#FFDAB3] text-sm font-medium capitalize">{task.category}</span>
+                                <span className="w-1/6 text-[#FFDAB3] text-sm font-medium capitalize">{task.status}</span>
+                                <span className="w-1/6 text-[#FFDAB3] text-sm font-medium capitalize">
                                     <DateConversion convertDate={task?.createdAt} />
                                 </span>
-                                <span className={allTaskDivSpan}>
+                                <span className="w-1/6 text-[#FFDAB3] text-sm font-medium capitalize">
                                     <DateConversion convertDate={task?.dueDate} />
                                 </span>
                                 <div className={allTaskDivDiv}>

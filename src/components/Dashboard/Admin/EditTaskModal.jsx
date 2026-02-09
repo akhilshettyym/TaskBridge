@@ -121,17 +121,17 @@ const EditTaskModal = ({ task, onClose }) => {
                         <div className="w-full flex flex-col gap-6 mt-5">
                             <div>
                                 <label className="text-md uppercase tracking-wide text-[#FFDAB3]/80"> Task Title </label>
-                                <input name="title" value={formData.title} onChange={handleChange} className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition" />
+                                <input name="title" value={formData.title} onChange={handleChange} className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition" />
                             </div>
 
                             <div>
                                 <label className="text-md uppercase tracking-wide text-[#FFDAB3]/80"> Category </label>
-                                <input name="category" value={formData.category} onChange={handleChange} className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition" />
+                                <input name="category" value={formData.category} onChange={handleChange} className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition" />
                             </div>
 
                             <div className="relative">
                                 <label className="text-md uppercase tracking-wide text-[#FFDAB3]/80"> Priority </label>
-                                <select name="priority" value={formData.priority} onChange={handleChange} className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-3 text-[#FFDAB3] appearance-none outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition">
+                                <select name="priority" value={formData.priority} onChange={handleChange} className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-3 text-[#FFDAB3] appearance-none outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition">
                                     <option>High</option>
                                     <option>Medium</option>
                                     <option>Low</option>
@@ -143,7 +143,7 @@ const EditTaskModal = ({ task, onClose }) => {
                         <div className="w-full flex flex-col gap-6">
                             <div className="relative">
                                 <label className="text-md uppercase tracking-wide text-[#FFDAB3]/80"> Status </label>
-                                <select value={formData.status} disabled className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/20 rounded-xl px-4 py-3 text-[#FFDAB3]/70 appearance-none outline-none cursor-not-allowed opacity-70">
+                                <select value={formData.status} disabled className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/20 rounded-2xl px-4 py-3 text-[#FFDAB3]/70 appearance-none outline-none cursor-not-allowed opacity-70">
                                     <option value={formData.status}>
                                         {formData.status === "new" && "New"}
                                         {formData.status === "inprogress" && "In Progress"}
@@ -156,7 +156,7 @@ const EditTaskModal = ({ task, onClose }) => {
 
                             <div className="relative">
                                 <label className="text-md uppercase tracking-wide text-[#FFDAB3]/80"> Assign To </label>
-                                <select name="assignedTo" value={formData.assignedTo || ""} onChange={handleChange} disabled={adminTasks} className={`mt-2 w-full bg-[#0F1412] border rounded-xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition pr-10 appearance-none ${adminTasks ? "border-[#FFDAB3]/20 text-[#FFDAB3]/70 cursor-not-allowed opacity-70"
+                                <select name="assignedTo" value={formData.assignedTo || ""} onChange={handleChange} disabled={adminTasks} className={`mt-2 w-full bg-[#0F1412] border rounded-2xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition pr-10 appearance-none ${adminTasks ? "border-[#FFDAB3]/20 text-[#FFDAB3]/70 cursor-not-allowed opacity-70"
                                     : "border-[#FFDAB3]/30 cursor-pointer"
                                     }`}>
                                     <option value="">Unassigned</option>
@@ -171,7 +171,7 @@ const EditTaskModal = ({ task, onClose }) => {
 
                             <div>
                                 <label className="text-md uppercase tracking-wide text-[#FFDAB3]/80"> Task Description </label>
-                                <textarea name="description" rows={5} value={formData.description} onChange={handleChange} className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition" />
+                                <textarea name="description" rows={5} value={formData.description} onChange={handleChange} className="mt-2 w-full bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition" />
                             </div>
                         </div>
                     </div>

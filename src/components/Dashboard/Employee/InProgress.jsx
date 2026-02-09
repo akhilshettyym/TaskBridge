@@ -16,7 +16,7 @@ const InProgress = ({ data, handleLogout, orgData }) => {
 
       <TaskListNo data={data} />
 
-      <div className="mt-5 bg-[#1B211A] rounded-xl p-4 border border-[#FFDAB3]/25">
+      <div className="mt-5 bg-[#1B211A] rounded-2xl p-4 border border-[#FFDAB3]/25">
         {inProgress.length === 0 ? (
           <div className="text-center py-12 text-[#F8F8F2]/60 text-lg"> No tasks are accepted at the moment. </div>
         ) : (

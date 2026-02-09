@@ -46,7 +46,7 @@ export {
     EmployeeDetails, CreateTask, Header, TaskListNo, TaskList, PriorityTag, TaskCount,
 
     InProgress, CompletedTask, FailedTask, NewTask,
-    
+
     adminDivClass, employeeDivClass, AuthContext, Link,
 
     priorityMsgSpanClass, priorityMsgSpanHigh, priorityMsgSpanMedium, priorityMsgSpanLow,

@@ -1,6 +1,6 @@
 import RegisterOrg from "./components/Auth/RegisterOrg";
 import Landing from "./components/Landing";
-import { SignIn, SignUp, EmployeeDashboard, AdminDashboard, useContext, useEffect, useState, AuthContext, Routes, Route, Navigate, EmployeeDetails, NewTask, InProgress, CompletedTask, FailedTask } from "./constants/imports";
+import { SignIn, SignUp, useContext, useEffect, useState, AuthContext, Routes, Route, Navigate, NewTask, InProgress } from "./constants/imports";
 import { getOrganizationData } from "./utils/localStorage";
 import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";

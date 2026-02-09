@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const MAX_ATTEMPTS = 3;
 const LOCK_TIME = 5 * 60 * 1000;
 
-const inputClass = "mt-2 w-full appearance-none bg-[#0F1412] border border-[#FFDAB3]/30 rounded-xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition";
+const inputClass = "mt-2 w-full appearance-none bg-[#0F1412] border border-[#FFDAB3]/30 rounded-2xl px-4 py-3 text-[#FFDAB3] outline-none focus:border-[#FFDAB3] focus:ring-1 focus:ring-[#FFDAB3]/50 transition";
 
 const EmployeeEmpDetails = ({ data, handleLogout, orgData }) => {
   const [taskbridge, setTaskbridge] = useState(JSON.parse(localStorage.getItem("taskbridge")));
@@ -136,7 +136,7 @@ const EmployeeEmpDetails = ({ data, handleLogout, orgData }) => {
 
       <TaskListNo data={employee} />
 
-      <div className="mt-5 bg-[#1B211A] p-4 rounded-xl border border-[#FFDAB3]/30 shadow-sm">
+      <div className="mt-5 bg-[#1B211A] p-4 rounded-2xl border border-[#FFDAB3]/30 shadow-sm">
         <div className="flex items-center justify-between gap-4 text-sm font-medium uppercase tracking-wide text-[#FFDAB3]">
           <div>
             <span className="text-[#F8F8F2]/70">ID: </span>
