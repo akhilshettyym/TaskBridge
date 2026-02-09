@@ -14,7 +14,7 @@ const TaskLifeCycle = ({ data, handleLogout, orgData }) => {
             <h1 className="mt-5 font-bold text-[#FFDAB3] text-xl uppercase text-center"> Completed / Failed Tasks </h1>
             <hr className="my-5 border border-[#FFDAB3]/40" />
             <TaskListNo data={data} />
-            <div className="space-y-12 mt-10">
+            <div className="space-y-12 mt-5">
                 <CompletedTask data={data} />
                 <FailedTask data={data} />
             </div>

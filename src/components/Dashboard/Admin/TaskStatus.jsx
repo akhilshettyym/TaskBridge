@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 import Header from "../../Basics/Header";
 import AdminControl from "./AdminControl";
 import PriorityTag from "../../Basics/PriorityTag";
 import DateConversion from "../../Basics/DateConversion";
 import RemoveTask from "../../Basics/RemoveTask";
+import EditTaskModal from "./EditTaskModal";
 
 const TaskStatus = ({ data, handleLogout, orgData }) => {
   const authData = useContext(AuthContext);
@@ -12,6 +13,9 @@ const TaskStatus = ({ data, handleLogout, orgData }) => {
   const admin = authData?.admin;
   const employees = authData?.employees ?? [];
   const tasks = admin?.tasks ?? [];
+
+  const [editingTask, setEditingTask] = useState(null);
+  // const isEditable = !["failed", "completed"].includes(task.status);
 
   const getEmployeeName = (id) => {
     const emp = employees.find(e => e.id === id);
@@ -85,8 +89,31 @@ const TaskStatus = ({ data, handleLogout, orgData }) => {
 
                   <div className="px-4 py-2 border-t border-[#FFDAB3]/20 bg-[#1B211A] flex justify-between items-center rounded-b-2xl">
                     <span className="text-xs text-[#F8F8F2]/60"> Task ID: {task.id} </span>
-                    <RemoveTask taskId={task.id} />
+                    <div className="flex items-center gap-3">
+                      <RemoveTask taskId={task.id} />
+
+                      <div className="relative group">
+                        <div className="relative group inline-block">
+                          <button onClick={() => setEditingTask(task)} disabled={task.status !== "failed"}
+                            className={`py-1 px-4 text-sm rounded-md border font-semibold transition ${task.status === "failed"
+                              ? "border-[#957C62] text-[#FFDAB3] hover:bg-[#957C62] hover:text-white"
+                              : "border-[#957C62]/40 text-[#FFDAB3]/50 cursor-not-allowed opacity-60"
+                              } disabled:hover:bg-transparent disabled:cursor-not-allowed `} > Edit </button>
+
+                          {task.status !== "failed" && (
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-[#1B211A] text-[#FFDAB3]/90 text-xs px-3 py-1.5 rounded border border-[#FFDAB3]/30 whitespace-nowrap z-10">
+                              Only failed tasks can be edited
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
+
+                  {editingTask && (
+                    <EditTaskModal task={editingTask} onClose={() => setEditingTask(null)} />
+                  )}
 
                 </div>
               ))}

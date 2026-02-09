@@ -16,12 +16,12 @@ const EmployeeControl = () => {
         <div className="mt-6">
             <div className="bg-[#626F47]/35 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-md">
                 <div className="flex flex-wrap items-center gap-3">
-                    <h1 className="ml-5 mr-5 text-[#FFDAB3] text-md uppercase"> Employee Dashboard </h1>
+                    <h1 className="ml-5 mr-5 text-[#FFDAB3] text-sm uppercase font-semibold"> Employee Dashboard </h1>
                     {navItems.map((item) => {
                         const isActive = pathname === item.path;
 
                         return (
-                            <Link key={item.path} to={item.path} className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${isActive
+                            <Link key={item.path} to={item.path} className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${isActive
                                     ? "bg-[#FFDAB3] text-[#1B211A] shadow-md"
                                     : "text-[#FFDAB3] hover:bg-[#FFDAB3]/10 hover:shadow"
                                 } `}>

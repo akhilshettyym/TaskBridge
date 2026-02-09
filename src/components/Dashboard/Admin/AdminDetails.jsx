@@ -155,19 +155,10 @@ const AdminDetails = ({ data, handleLogout, orgData }) => {
             <hr className="my-5 border border-[#FFDAB3]/40" />
 
             <div className="bg-[#1B211A] p-4 rounded-xl border border-[#FFDAB3]/30 mb-6 flex items-center text-sm text-[#FFDAB3]">
-
-                <div className="w-1/3 text-left uppercase font-semibold"> ID : <span className="font-semibold">{admin?.id}</span>
-                </div>
-
-                <div className="w-1/3 text-center"> Email :{" "}
-                    <span className="font-semibold lowercase"> {admin?.email} </span>
-                </div>
-
-                <div className="w-1/3 text-right uppercase font-semibold"> Org ID : <span className="font-semibold">{organization?.id}</span>
-                </div>
-
+                <div className="w-1/3 text-left uppercase font-semibold"> ID : <span className="font-semibold">{admin?.id}</span></div>
+                <div className="w-1/3 text-center"> Email :{" "}<span className="font-semibold lowercase"> {admin?.email} </span></div>
+                <div className="w-1/3 text-right uppercase font-semibold"> Org ID : <span className="font-semibold">{organization?.id}</span></div>
             </div>
-
 
             <form onSubmit={handleSubmit} className="bg-[#1B211A] p-6 rounded-2xl border border-[#FFDAB3]/40 flex flex-wrap gap-6">
                 <div className="w-full md:w-[48%]">

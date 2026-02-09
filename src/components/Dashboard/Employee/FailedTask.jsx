@@ -4,8 +4,8 @@ const FailedTask = ({ data }) => {
   const failedTask = data?.tasks?.filter((e) => e.status === "failed") || [];
   return (
     <section className="w-full">
-      <h2 className="mb-6 text-lg font-semibold text-[#FFDAB3] uppercase"> Failed Tasks </h2>
-      <div className="bg-[#1B211A] rounded-2xl p-6 border border-[#FFDAB3]/25">
+      {/* <h2 className="mb-6 text-lg font-semibold text-[#FFDAB3] uppercase"> Failed Tasks </h2> */}
+      <div className="bg-[#1B211A] rounded-2xl p-4 border border-[#FFDAB3]/25">
         {failedTask.length === 0 ? (
           <div className="text-center py-12 text-[#F8F8F2]/60 text-lg"> No failed tasks. </div>
         ) : (

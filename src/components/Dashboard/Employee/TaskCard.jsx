@@ -10,7 +10,6 @@ import toast from "react-hot-toast";
 const TaskCard = ({ task }) => {
   const location = useLocation();
   const { updateAuthData } = useContext(AuthContext);
-
   const { id, status, title, category, description, priority, createdAt, dueDate, assignedTo } = task;
 
   const isStatusPage = location.pathname.startsWith("/employee/taskstatus");

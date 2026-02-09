@@ -9,7 +9,7 @@ import EditTaskModal from "./EditTaskModal";
 const CreatedTasks = ({ data, handleLogout, orgData }) => {
 
     const authData = useContext(AuthContext);
-    
+
     const admin = authData?.admin ?? {};
     const [editingTask, setEditingTask] = useState(null);
 
@@ -53,12 +53,21 @@ const CreatedTasks = ({ data, handleLogout, orgData }) => {
                                     <PriorityTag priorityMsg={task.priority} />
                                 </div>
 
-                                <button onClick={() => task.status === "new" && setEditingTask(task)} disabled={task.status !== "new"}
-                                    className={`py-1 px-4 text-sm rounded-md border font-semibold transition ${task.status === "new"
-                                            ? "border-[#957C62] text-[#FFDAB3] hover:bg-[#957C62]"
-                                            : "border-[#555] text-[#777] bg-[#2A2A2A] cursor-not-allowed opacity-60"
+                                <div className="relative inline-block group">
+                                    <button onClick={() => task.status === "new" && setEditingTask(task)} disabled={task.status !== "new"} className={`py-1 px-4 text-sm rounded-md border font-semibold transition ${task.status === "new"
+                                        ? "border-[#957C62] text-[#FFDAB3] hover:bg-[#957C62] hover:text-white"
+                                        : "border-[#555] text-[#777] bg-[#2A2A2A] cursor-not-allowed opacity-60"
                                         }`}> Edit </button>
-                                {editingTask && (<EditTaskModal task={editingTask} onClose={() => setEditingTask(null)} />)}
+
+                                    {task.status !== "new" && (
+                                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-10 bg-[#1B211A] text-[#FFDAB3]/90 text-xs px-3 py-1.5 rounded border border-[#FFDAB3]/30 whitespace-nowrap shadow-md"> Only new tasks can be edited
+                                        </div>
+                                    )}
+                                </div>
+
+                                {editingTask && (
+                                    <EditTaskModal task={editingTask} onClose={() => setEditingTask(null)} />
+                                )}
                             </div>
                         ))
                     )}
