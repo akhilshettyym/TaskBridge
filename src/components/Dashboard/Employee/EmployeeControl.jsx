@@ -1,5 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
-import { FiGrid, FiClipboard, FiUsers, FiBarChart2, FiBarChart } from "react-icons/fi";
+import { Link, useLocation, FiGrid, FiClipboard, FiUsers, FiBarChart2, FiBarChart } from "../../../constants/imports";
 
 const EmployeeControl = () => {
     const { pathname } = useLocation();

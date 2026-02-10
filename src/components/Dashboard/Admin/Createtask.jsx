@@ -1,9 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { generateSequentialId, getLocalStorage, setLocalStorage } from "../../../utils/localStorage";
-import { AuthContext } from "../../../context/AuthProvider";
-import toast from "react-hot-toast";
+import { useContext, useEffect, useState, DatePicker, generateSequentialId, getLocalStorage, AuthContext, toast } from "../../../constants/imports";
 
 const CreateTask = () => {
     const [employees, setEmployees] = useState([]);

@@ -1,6 +1,4 @@
-import { Header } from "../../../constants/imports";
-import Dashboard from "./Dashboard";
-import AdminControl from "./AdminControl";
+import { Header, AdminControl, Dashboard } from "../../../constants/imports";
 
 const AdminDashboard = ({ data, handleLogout, orgData }) => {
     return (

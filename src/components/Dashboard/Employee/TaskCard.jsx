@@ -1,11 +1,4 @@
-import { useContext, useState } from "react";
-import { getLocalStorage } from "../../../utils/localStorage";
-import DateConversion from "../../Basics/DateConversion";
-import PriorityTag from "../../Basics/PriorityTag";
-import { useLocation } from "react-router-dom";
-import { AuthContext } from "../../../context/AuthProvider";
-import toast from "react-hot-toast";
-import FailedTaskModal from "./FailedTaskModal";
+import { useState, useContext, useLocation, AuthContext, getLocalStorage, DateConversion, PriorityTag, FailedTaskModal, toast } from "../../../constants/imports";
 
 const TaskCard = ({ task }) => {
   const location = useLocation();

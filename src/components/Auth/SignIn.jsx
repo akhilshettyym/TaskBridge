@@ -1,5 +1,4 @@
-import { useState, Link } from '../../constants/imports';
-import PasswordToggle from '../Basics/PasswordToggle';
+import { useState, PasswordToggle, Link } from "../../constants/imports";
 
 const Login = ({ handleLogin }) => {
   const [email, setEmail] = useState("");

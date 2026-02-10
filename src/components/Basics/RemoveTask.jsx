@@ -1,8 +1,4 @@
-import { useContext, useState } from "react";
-import toast from "react-hot-toast";
-import { getLocalStorage, setLocalStorage } from "../../utils/localStorage";
-import { AuthContext } from "../../context/AuthProvider";
-import ConfirmModal from "./ConfirmModal";
+import { useState, useContext, toast, getLocalStorage, setLocalStorage, AuthContext, ConfirmModal } from "../../constants/imports";
 
 const RemoveTask = ({ taskId }) => {
     const { updateAuthData } = useContext(AuthContext);

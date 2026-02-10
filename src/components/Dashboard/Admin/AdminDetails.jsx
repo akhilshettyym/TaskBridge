@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import Header from "../../Basics/Header";
-import AdminControl from "./AdminControl";
-import toast from "react-hot-toast";
+import { useState, useEffect, Header, AdminControl, toast } from "../../../constants/imports";
 
 const MAX_ATTEMPTS = 3;
 const LOCK_TIME = 5 * 60 * 1000;

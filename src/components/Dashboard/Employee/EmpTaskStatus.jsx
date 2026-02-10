@@ -1,7 +1,4 @@
-import Header from "../../Basics/Header";
-import EmployeeControl from "./EmployeeControl";
-import TaskCard from "./TaskCard";
-import TaskListNo from "./TaskListNo";
+import { Header, EmployeeControl, TaskCard, TaskListNo } from "../../../constants/imports";
 
 const EmpTaskStatus = ({ data, handleLogout, orgData }) => {
 
@@ -13,7 +10,7 @@ const EmpTaskStatus = ({ data, handleLogout, orgData }) => {
       <EmployeeControl />
 
       <hr className="my-5 border border-[#FFDAB3]/40" />
-      <h1 className="mt-5 font-bold text-[#FFDAB3] text-xl uppercase flex flex-col items-center"> New Tasks </h1>
+      <h1 className="mt-5 font-bold text-[#FFDAB3] text-xl uppercase flex flex-col items-center"> Task Status </h1>
       <hr className="my-5 border border-[#FFDAB3]/40" />
 
       <TaskListNo data={data} />

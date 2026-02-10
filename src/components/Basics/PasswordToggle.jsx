@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { useState, Eye, EyeOff } from "../../constants/imports";
 
 const PasswordToggle = ({ name = "password", value, onChange, placeholder, className = "", required = true, iconClassName = "" }) => {
 
     const [showPassword, setShowPassword] = useState(false);
+    
     return (
         <div className="relative w-full">
             <input name={name} type={showPassword ? "text" : "password"} value={value} onChange={onChange} placeholder={placeholder} required={required} className={className} />

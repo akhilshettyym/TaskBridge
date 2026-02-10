@@ -1,13 +1,4 @@
-import { useState } from "react";
-import { generateSequentialId, getLocalStorage, setLocalStorage } from "../../../utils/localStorage";
-import Header from "../../Basics/Header";
-import AddEmployees from "./AddEmployees";
-import AdminControl from "./AdminControl";
-import DatePicker from "react-datepicker";
-import PasswordToggle from "../../Basics/PasswordToggle";
-import toast from "react-hot-toast";
-import { v4 as uuidv4 } from "uuid";
-import { useNavigate } from "react-router-dom";
+import { uuidv4, useState, useNavigate, Header, generateSequentialId, getLocalStorage, setLocalStorage, AddEmployees, AdminControl, DatePicker, PasswordToggle, toast } from "../../../constants/imports";
 
 const EmployeeManagement = ({ data, handleLogout, orgData }) => {
     const navigate = useNavigate();

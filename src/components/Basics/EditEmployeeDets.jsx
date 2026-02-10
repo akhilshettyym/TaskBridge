@@ -1,6 +1,4 @@
-import { useState } from "react";
-import toast from "react-hot-toast";
-import { getLocalStorage, setLocalStorage } from "../../utils/localStorage";
+import { useState, toast, getLocalStorage, setLocalStorage } from "../../constants/imports";
 
 const EditEmployeeDets = ({ emp, setEmployees }) => {
     const [open, setOpen] = useState(false);

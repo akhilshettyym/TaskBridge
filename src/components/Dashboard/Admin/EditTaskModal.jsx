@@ -1,7 +1,4 @@
-import { useContext, useState } from "react";
-import toast from "react-hot-toast";
-import { AuthContext } from "../../../context/AuthProvider";
-import { getLocalStorage } from "../../../utils/localStorage";
+import { useState, useContext, AuthContext, getLocalStorage, toast } from "../../../constants/imports";
 
 const EditTaskModal = ({ task, onClose }) => {
     const { updateAuthData, employees } = useContext(AuthContext);

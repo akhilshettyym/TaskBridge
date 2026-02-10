@@ -1,6 +1,4 @@
-import AdminControl from "../Admin/AdminControl"
-import CreateTask from "../Admin/Createtask"
-import Header from "../../Basics/Header"
+import { Header, AdminControl, CreateTask } from "../../../constants/imports";
 
 const Dashboard = ({ data, handleLogout, orgData }) => {
     return (

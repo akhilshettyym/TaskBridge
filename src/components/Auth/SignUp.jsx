@@ -1,10 +1,4 @@
-import { Link, signupAlreadyRegistered, signupContainerDiv, signupCreateOrgBtn, signupCreateOrgDiv, signupDescDiv, signupFormClass, signupHeaderDiv, signupHeaderH1, signupInputClass, signupLabelClass, signupLinkToSignIn, signupMainDiv, signupMessagePTag, signupOrgAdminDets, signupOrgDets, signupOrgInfo, signupOrgLeftRight, signupTextareaClass } from '../../constants/imports'
-
-import { useNavigate } from "react-router-dom";
-import { generateSequentialId, setLocalStorage } from '../../utils/localStorage';
-import { v4 as uuidv4 } from "uuid";
-import PasswordToggle from '../Basics/PasswordToggle';
-import toast from 'react-hot-toast';
+import { Link, useNavigate, generateSequentialId, setLocalStorage, uuidv4, PasswordToggle, toast } from "../../constants/imports";
 
 const SignUp = () => {
 

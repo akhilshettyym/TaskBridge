@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
 * {
-  /* margin: 0; */
-  /* padding: 0; */
   box-sizing: border-box;
   font-family:'Times New Roman', Times, serif;
 }
@@ -17,32 +15,6 @@ body {
   background-color: #111;
   color: white;
 }
-
-/* #tasklist :: -webkit-scrollbar {
-  display: none;
-} */
-
-/* .react-datepicker {
- background-color: #1B211A;
- border: 1px solid rgba(255, 218, 179, 0.3);
-}
-
-.react-datepicker__header {
- background-color: #797877;
- border-bottom: 1px solid rgba(255, 218, 179, 0.2);
-}
-
-.react-datepicker__day,
-.react-datepicker__day-name {
- color: #FFDAB3;
-}
-
-.react-datepicker__day--selected,
-.react-datepicker__day--keyboard-selected {
- background-color: #FFDAB3;
- color: #000000;
-} */
-
 
 .react-datepicker {
   font-family: inherit;

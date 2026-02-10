@@ -1,6 +1,4 @@
-import { AuthContext, PriorityTag, TaskCount, useContext, Header } from "../../../constants/imports";
-import DateConversion from "../../Basics/DateConversion";
-import AdminControl from "./AdminControl";
+import { useContext, AuthContext, Header, AdminControl, DateConversion, TaskCount, PriorityTag } from "../../../constants/imports";
 
 const EmployeeAdDetails = ({ data, handleLogout, orgData }) => {
 

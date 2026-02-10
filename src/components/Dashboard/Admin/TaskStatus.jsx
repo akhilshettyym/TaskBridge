@@ -1,12 +1,4 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../../context/AuthProvider";
-import Header from "../../Basics/Header";
-import AdminControl from "./AdminControl";
-import PriorityTag from "../../Basics/PriorityTag";
-import DateConversion from "../../Basics/DateConversion";
-import RemoveTask from "../../Basics/RemoveTask";
-import EditTaskModal from "./EditTaskModal";
-import { BiSolidError } from "react-icons/bi";
+import { useState, AuthContext, useContext, Header, AdminControl, PriorityTag, DateConversion, RemoveTask, EditTaskModal, BiSolidError } from "../../../constants/imports";
 
 const TaskStatus = ({ data, handleLogout, orgData }) => {
   const authData = useContext(AuthContext);
@@ -16,7 +8,6 @@ const TaskStatus = ({ data, handleLogout, orgData }) => {
   const tasks = admin?.tasks ?? [];
 
   const [editingTask, setEditingTask] = useState(null);
-  // const isEditable = !["failed", "completed"].includes(task.status);
 
   const getEmployeeName = (id) => {
     const emp = employees.find(e => e.id === id);

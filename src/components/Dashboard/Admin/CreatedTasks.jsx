@@ -1,10 +1,4 @@
-import { useContext, useState } from "react";
-import { allTaskDivDiv, AuthContext } from "../../../constants/imports";
-import DateConversion from "../../Basics/DateConversion";
-import AdminControl from "./AdminControl";
-import PriorityTag from "../../Basics/PriorityTag";
-import Header from "../../Basics/Header";
-import EditTaskModal from "./EditTaskModal";
+import { useState, useContext, Header, AuthContext, AdminControl, DateConversion, PriorityTag, EditTaskModal } from "../../../constants/imports";
 
 const CreatedTasks = ({ data, handleLogout, orgData }) => {
 
@@ -49,7 +43,7 @@ const CreatedTasks = ({ data, handleLogout, orgData }) => {
                                 <span className="w-1/6 text-[#FFDAB3] text-sm font-medium capitalize">
                                     <DateConversion convertDate={task?.dueDate} />
                                 </span>
-                                <div className={allTaskDivDiv}>
+                                <div className="w-1/6 flex justify-center">
                                     <PriorityTag priorityMsg={task.priority} />
                                 </div>
 

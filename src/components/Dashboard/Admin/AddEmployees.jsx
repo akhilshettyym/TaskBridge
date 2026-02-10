@@ -1,8 +1,4 @@
-import { useEffect, useRef } from "react";
-import RemoveEmp from "../../Basics/RemoveEmp";
-import { getLocalStorage, setLocalStorage } from "../../../utils/localStorage";
-import toast from "react-hot-toast";
-import EditEmployeeDets from "../../Basics/EditEmployeeDets";
+import { useRef, useEffect, getLocalStorage, setLocalStorage, RemoveEmp, EditEmployeeDets, toast } from "../../../constants/imports";
 
 const AddEmployees = ({ employees, setEmployees }) => {
 

@@ -1,12 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import DatePicker from "react-datepicker";
+import { useState, useNavigate, DatePicker, uuidv4, generateSequentialId, getLocalStorage, setLocalStorage, PasswordToggle, AddEmployees, toast } from "../../constants/imports";
 import "react-datepicker/dist/react-datepicker.css";
-import { v4 as uuidv4 } from "uuid";
-import { generateSequentialId, getLocalStorage, setLocalStorage } from "../../utils/localStorage";
-import PasswordToggle from "../Basics/PasswordToggle";
-import AddEmployees from "../Dashboard/Admin/AddEmployees";
-import toast from "react-hot-toast";
 
 const RegisterOrg = () => {
   const navigate = useNavigate();

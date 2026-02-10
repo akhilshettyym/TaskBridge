@@ -1,8 +1,4 @@
-import Header from "../../Basics/Header"
-import CompletedTask from "./CompletedTask"
-import EmployeeControl from "./EmployeeControl"
-import FailedTask from "./FailedTask"
-import TaskListNo from "./TaskListNo"
+import { Header, CompletedTask, EmployeeControl, FailedTask, TaskListNo } from "../../../constants/imports";
 
 const TaskLifeCycle = ({ data, handleLogout, orgData }) => {
 

@@ -1,4 +1,4 @@
-import TaskCard from "./TaskCard";
+import { TaskCard } from "../../../constants/imports";
 
 const FailedTask = ({ data }) => {
   const failedTask = data?.tasks?.filter((e) => e.status === "failed") || [];

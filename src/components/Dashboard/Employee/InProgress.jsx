@@ -1,6 +1,4 @@
-import { Header, TaskListNo } from "../../../constants/imports";
-import EmployeeControl from "./EmployeeControl";
-import TaskCard from "./TaskCard";
+import { Header, TaskCard, TaskListNo, EmployeeControl } from "../../../constants/imports";
 
 const InProgress = ({ data, handleLogout, orgData }) => {
   const inProgress = data?.tasks?.filter((e) => e.status === "inprogress") || [];

@@ -1,9 +1,4 @@
-import { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
-import Header from "../../Basics/Header";
-import EmployeeControl from "./EmployeeControl";
-import TaskListNo from "./TaskListNo";
-import toast from "react-hot-toast";
+import { useState, useEffect, Header, DatePicker, EmployeeControl, TaskListNo, toast } from "../../../constants/imports";
 
 const MAX_ATTEMPTS = 3;
 const LOCK_TIME = 5 * 60 * 1000;

@@ -1,6 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
-import { FiGrid, FiClipboard, FiUsers, FiBarChart2, FiBarChart } from "react-icons/fi";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { Link, useLocation, FiGrid, FiClipboard, FiUsers, FiBarChart2, FiBarChart, AdminOutline } from "../../../constants/imports";
 
 const AdminControl = () => {
     const { pathname } = useLocation();
@@ -11,7 +9,7 @@ const AdminControl = () => {
         { label: "Task Status", path: "/admin/status", icon: <FiBarChart2 size={18} /> },
         { label: "Emp. Details", path: "/admin/employees", icon: <FiUsers size={18} /> },
         { label: "Emp. Mgmt.", path: "/admin/management", icon: <FiBarChart size={18} /> },
-        { label: "Admin details", path: "/admin/details", icon: <MdOutlineAdminPanelSettings size={18} /> }
+        { label: "Admin details", path: "/admin/details", icon: <AdminOutline size={18} /> }
     ];
 
     return (
