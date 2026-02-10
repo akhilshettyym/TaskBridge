@@ -1,24 +1,4 @@
-import RegisterOrg from "./components/Auth/RegisterOrg";
-import Landing from "./components/Landing";
-import { getOrganizationData } from "./utils/localStorage";
-import { Toaster } from "react-hot-toast";
-import toast from "react-hot-toast";
-import CreatedTasks from "./components/Dashboard/Admin/CreatedTasks";
-import Dashboard from "./components/Dashboard/Admin/Dashboard";
-import TaskStatus from "./components/Dashboard/Admin/TaskStatus";
-import EmployeeManagement from "./components/Dashboard/Admin/EmployeeManagement";
-import EmpTaskStatus from "./components/Dashboard/Employee/EmpTaskStatus";
-import TaskLifeCycle from "./components/Dashboard/Employee/TaskLifeCycle";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import AdminDetails from "./components/Dashboard/Admin/AdminDetails";
-import EmployeeEmpDetails from "./components/Dashboard/Employee/EmployeeEmpDetails";
-import EmployeeAdDetails from "./components/Dashboard/Admin/EmployeeAdDetails";
-import SignIn from "./components/Auth/SignIn"
-import SignUp from "./components/Auth/SignUp"
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "./context/AuthProvider";
-import NewTask from "./components/Dashboard/Employee/NewTask"
-import InProgress from "./components/Dashboard/Employee/InProgress"
+import { useState, useEffect, useContext, AuthContext, Navigate, Route, Routes, useNavigate, Landing, RegisterOrg, getOrganizationData, CreatedTasks, Dashboard, TaskStatus, EmployeeManagement, EmpTaskStatus, TaskLifeCycle, AdminDetails, EmployeeEmpDetails, EmployeeAdDetails, SignIn, SignUp, NewTask, InProgress, Toaster, toast } from "./constants/imports";
 
 const App = () => {
   const navigate = useNavigate();
