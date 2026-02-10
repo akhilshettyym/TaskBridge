@@ -79,7 +79,7 @@ const TaskStatus = ({ data, handleLogout, orgData }) => {
                           <BiSolidError size={20} />
                         </span>
 
-                        <div className="absolute z-20 right-0 bottom-full mb-2 hidden group-hover:block w-80 max-w-[90vw] px-3 py-2.5 bg-[#1B1F1A] text-[#F8F8F2] text-xs rounded-lg border-2 border-red-500/40 shadow-xl whitespace-pre-wrap break-words">
+                        <div className="absolute z-20 right-0 bottom-full mb-2 hidden group-hover:block w-80 max-w-[90vw] px-3 py-2.5 bg-[#1B1F1A] text-[#F8F8F2] text-xs rounded-lg border-2 border-red-500/40 shadow-xl whitespace-pre-wrap wrap-break-word">
                           <div className="font-semibold text-red-400 mb-1 flex items-center gap-1.5">
                             <BiSolidError size={18} /> Failure Reason
                           </div>
